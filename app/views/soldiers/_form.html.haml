@@ -1,0 +1,7 @@
+= simple_form_for(@soldier) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :fio
+  .form-actions
+    = f.submit 'Обновить', :class => 'btn btn-danger'

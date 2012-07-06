@@ -1,0 +1,9 @@
+%ul.place_gallery.thumbnails
+  - @place.photos.each do |p|
+    %li.span2
+      %div.thumbnail
+        %a.thumbnail{:href => polymorphic_path([@place, p])}
+          = image_tag p.photo.icon
+        - if p.need_ocr?
+          %span.label.label-important= 'нужно оцифровать'
+%hr

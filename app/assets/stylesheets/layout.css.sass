@@ -1,0 +1,36 @@
+html
+  background: url('/assets/metal.jpg') repeat 
+body
+  background-color: transparent !important
+  background: url('/assets/george.png') no-repeat 0px 30px
+
+    //no-repeat
+html, body
+  height: 100%
+a
+  color: #930000
+  &:hover
+    color: #AB0101
+.content
+  margin: auto
+  & > .row
+    height: 100%
+    margin-bottom: -100px
+    & > .span12
+      height: 100%
+.bordered > .inner > .row
+  margin-left: 0px
+.bordered
+  border: 3px solid #7C4646
+  @include border-radius(5px)
+  background: #fff
+  padding: 10px 
+  text-align: center
+  vertical-align: top
+  @include box-shadow(3px)
+  .inner
+    text-align: left
+.alert.alert-error
+  background: #6F0000
+  border: #540000
+  color: white

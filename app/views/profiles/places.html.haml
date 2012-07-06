@@ -1,0 +1,6 @@
+%table.table
+  - @places.each do |x|
+    %tr
+      %td= link_to(x.name, polymorphic_path(x))
+
+= paginate @places

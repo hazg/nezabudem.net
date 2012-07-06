@@ -1,0 +1,323 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Ability	app/models/ability.rb	/^class Ability$/;"	c
+ActiveRecord	app/models/place.rb	/^class ActiveRecord::Reflection::AssociationReflection$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+ActiveSupport	vendor/engines/dictum/test/support/integration_case.rb	/^class ActiveSupport::IntegrationCase < ActiveSupport::TestCase$/;"	c
+ActsAsTaggableOnMigration	db/migrate/20120510123606_acts_as_taggable_on_migration.rb	/^class ActsAsTaggableOnMigration < ActiveRecord::Migration$/;"	c
+AddAncestryToDictumComments	vendor/engines/dictum/db/migrate/20111213212901_add_ancestry_to_dictum_comments.rb	/^class AddAncestryToDictumComments < ActiveRecord::Migration$/;"	c
+AddAncestryToPages	db/migrate/20120930141353_add_ancestry_to_pages.scrib_engine.rb	/^class AddAncestryToPages < ActiveRecord::Migration$/;"	c
+AddAncestryToPlaces	db/migrate/20120416121827_add_ancestry_to_places.rb	/^class AddAncestryToPlaces < ActiveRecord::Migration$/;"	c
+AddCategoryIdToForums	db/migrate/20120930141366_add_category_id_to_forums.forem.rb	/^class AddCategoryIdToForums < ActiveRecord::Migration$/;"	c
+AddColumnsToUsers	db/migrate/20120930141389_add_columns_to_users.rb	/^class AddColumnsToUsers < ActiveRecord::Migration$/;"	c
+AddDateToPlacePhoto	db/migrate/20120930141348_add_date_to_place_photo.rb	/^class AddDateToPlacePhoto < ActiveRecord::Migration$/;"	c
+AddForemAdmin	db/migrate/20120930141380_add_forem_admin.rb	/^class AddForemAdmin < ActiveRecord::Migration$/;"	c
+AddForemAutoSubscribeToUser	db/migrate/20120930141382_add_forem_auto_subscribe_to_user.rb	/^class AddForemAutoSubscribeToUser < ActiveRecord::Migration$/;"	c
+AddForemState	db/migrate/20120930141381_add_forem_state.rb	/^class AddForemState < ActiveRecord::Migration$/;"	c
+AddForemTopicsLastPostAt	db/migrate/20120930141370_add_forem_topics_last_post_at.forem.rb	/^class AddForemTopicsLastPostAt < ActiveRecord::Migration$/;"	c
+AddForemViewFields	db/migrate/20120930141379_add_forem_view_fields.forem.rb	/^class AddForemViewFields < ActiveRecord::Migration$/;"	c
+AddForemViews	db/migrate/20120930141361_add_forem_views.forem.rb	/^class AddForemViews < ActiveRecord::Migration$/;"	c
+AddHiddenToForemTopics	db/migrate/20120930141363_add_hidden_to_forem_topics.forem.rb	/^class AddHiddenToForemTopics < ActiveRecord::Migration$/;"	c
+AddIndexesToTopicsPostsViews	db/migrate/20120930141364_add_indexes_to_topics_posts_views.forem.rb	/^class AddIndexesToTopicsPostsViews < ActiveRecord::Migration$/;"	c
+AddLockedToForemTopics	db/migrate/20120930141359_add_locked_to_forem_topics.forem.rb	/^class AddLockedToForemTopics < ActiveRecord::Migration$/;"	c
+AddNeedOcrToPlacePhotos	db/migrate/20120930141383_add_need_ocr_to_place_photos.rb	/^class AddNeedOcrToPlacePhotos < ActiveRecord::Migration$/;"	c
+AddNickToUser	db/migrate/20120930141346_add_nick_to_user.rb	/^class AddNickToUser < ActiveRecord::Migration$/;"	c
+AddNotifiedToForemPosts	db/migrate/20120930141377_add_notified_to_forem_posts.forem.rb	/^class AddNotifiedToForemPosts < ActiveRecord::Migration$/;"	c
+AddPendingReviewToForemPosts	db/migrate/20120930141368_add_pending_review_to_forem_posts.forem.rb	/^class AddPendingReviewToForemPosts < ActiveRecord::Migration$/;"	c
+AddPendingReviewToForemTopics	db/migrate/20120930141369_add_pending_review_to_forem_topics.forem.rb	/^class AddPendingReviewToForemTopics < ActiveRecord::Migration$/;"	c
+AddPinnedToForemTopics	db/migrate/20120930141360_add_pinned_to_forem_topics.forem.rb	/^class AddPinnedToForemTopics < ActiveRecord::Migration$/;"	c
+AddPlacePhotosCountToPlaces	db/migrate/20120930141384_add_place_photos_count_to_places.rb	/^class AddPlacePhotosCountToPlaces < ActiveRecord::Migration$/;"	c
+AddReplyToToForemPosts	db/migrate/20120930141358_add_reply_to_to_forem_posts.forem.rb	/^class AddReplyToToForemPosts < ActiveRecord::Migration$/;"	c
+AddSoldiersCountToPlaces	db/migrate/20120930141387_add_soldiers_count_to_places.rb	/^class AddSoldiersCountToPlaces < ActiveRecord::Migration$/;"	c
+AddSoldirable	db/migrate/20120930141351_add_soldirable.rb	/^class AddSoldirable < ActiveRecord::Migration$/;"	c
+AddTitleToRoles	db/migrate/20120930141388_add_title_to_roles.rb	/^class AddTitleToRoles < ActiveRecord::Migration$/;"	c
+AddUpdatedAtAndCountToForemViews	db/migrate/20120930141362_add_updated_at_and_count_to_forem_views.forem.rb	/^class AddUpdatedAtAndCountToForemViews < ActiveRecord::Migration$/;"	c
+AddUserToPlacePhoto	db/migrate/20120930141349_add_user_to_place_photo.rb	/^class AddUserToPlacePhoto < ActiveRecord::Migration$/;"	c
+AddUserToSoldier	db/migrate/20120930141347_add_user_to_soldier.rb	/^class AddUserToSoldier < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:NezabudemNet
+Application	vendor/engines/dictum/config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Ductum
+Application	vendor/engines/dictum/test/dummy/config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Dummy
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationController	vendor/engines/dictum/app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationController	vendor/engines/dictum/test/dummy/app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationHelper	vendor/engines/dictum/test/dummy/app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationResponder	lib/application_responder.rb	/^class ApplicationResponder < ActionController::Responder$/;"	c
+ApproveAllTopicsAndPosts	db/migrate/20120930141376_approve_all_topics_and_posts.forem.rb	/^class ApproveAllTopicsAndPosts < ActiveRecord::Migration$/;"	c
+Avatar	app/models/avatar.rb	/^class Avatar < ActiveRecord::Base$/;"	c
+AvatarTest	test/unit/avatar_test.rb	/^class AvatarTest < ActiveSupport::TestCase$/;"	c
+AvatarUploader	app/uploaders/avatar_uploader.rb	/^class AvatarUploader < CarrierWave::Uploader::Base$/;"	c
+BootstrapBreadcrumbsBuilder	lib/bootstrap_breadcrumbs_builder.rb	/^class BootstrapBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Builder$/;"	c
+BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+Comments	vendor/engines/dictum/app/models/dictum/message.rb	/^  class Comments < ActiveRecord::Base$/;"	c	class:Dictum
+CommentsController	vendor/engines/dictum/app/controllers/dictum/comments_controller.rb	/^  class CommentsController < ApplicationController$/;"	c	class:Dictum
+CommentsHelper	vendor/engines/dictum/app/helpers/comments_helper.rb	/^module CommentsHelper$/;"	m
+CreateAvatars	db/migrate/20120930141344_create_avatars.rb	/^class CreateAvatars < ActiveRecord::Migration$/;"	c
+CreateCkeditorAssets	db/migrate/20120930141354_create_ckeditor_assets.rb	/^class CreateCkeditorAssets < ActiveRecord::Migration$/;"	c
+CreateDictumComments	vendor/engines/dictum/db/migrate/20111213210627_create_dictum_comments.rb	/^class CreateDictumComments < ActiveRecord::Migration$/;"	c
+CreateForemCategories	db/migrate/20120930141365_create_forem_categories.forem.rb	/^class CreateForemCategories < ActiveRecord::Migration$/;"	c
+CreateForemForums	db/migrate/20120930141355_create_forem_forums.forem.rb	/^class CreateForemForums < ActiveRecord::Migration$/;"	c
+CreateForemGroups	db/migrate/20120930141371_create_forem_groups.forem.rb	/^class CreateForemGroups < ActiveRecord::Migration$/;"	c
+CreateForemMemberships	db/migrate/20120930141372_create_forem_memberships.forem.rb	/^class CreateForemMemberships < ActiveRecord::Migration$/;"	c
+CreateForemModeratorGroups	db/migrate/20120930141373_create_forem_moderator_groups.forem.rb	/^class CreateForemModeratorGroups < ActiveRecord::Migration$/;"	c
+CreateForemPosts	db/migrate/20120930141357_create_forem_posts.forem.rb	/^class CreateForemPosts < ActiveRecord::Migration$/;"	c
+CreateForemSubscriptions	db/migrate/20120930141367_create_forem_subscriptions.forem.rb	/^class CreateForemSubscriptions < ActiveRecord::Migration$/;"	c
+CreateForemTopics	db/migrate/20120930141356_create_forem_topics.forem.rb	/^class CreateForemTopics < ActiveRecord::Migration$/;"	c
+CreatePages	db/migrate/20120930141352_create_pages.scrib_engine.rb	/^class CreatePages < ActiveRecord::Migration$/;"	c
+CreatePlacePhotos	db/migrate/20120417120413_create_place_photos.rb	/^class CreatePlacePhotos < ActiveRecord::Migration$/;"	c
+CreatePlaces	db/migrate/20120415120738_create_places.rb	/^class CreatePlaces < ActiveRecord::Migration$/;"	c
+CreateProfiles	db/migrate/20120930141345_create_profiles.rb	/^class CreateProfiles < ActiveRecord::Migration$/;"	c
+CreateRailsAdminHistoriesTable	db/migrate/20120413132425_create_rails_admin_histories_table.rb	/^class CreateRailsAdminHistoriesTable < ActiveRecord::Migration$/;"	c
+CreateRoles	db/migrate/20120426183600_create_roles.rb	/^class CreateRoles < ActiveRecord::Migration$/;"	c
+CreateSoldiers	db/migrate/20120413143253_create_soldiers.rb	/^class CreateSoldiers < ActiveRecord::Migration$/;"	c
+DeviseCreateUsers	db/migrate/20120413132343_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration$/;"	c
+DeviseHelper	app/helpers/devise_helper.rb	/^module DeviseHelper$/;"	m
+Dictum	vendor/engines/dictum/app/controllers/dictum/comments_controller.rb	/^module Dictum$/;"	m
+Dictum	vendor/engines/dictum/app/models/dictum/message.rb	/^module Dictum$/;"	m
+Dictum	vendor/engines/dictum/lib/dictum.rb	/^module Dictum$/;"	m
+Ductum	vendor/engines/dictum/config/application.rb	/^module Ductum$/;"	m
+Dummy	vendor/engines/dictum/test/dummy/config/application.rb	/^module Dummy$/;"	m
+Engine	vendor/engines/dictum/lib/dictum.rb	/^  class Engine < Rails::Engine$/;"	c	class:Dictum
+Engine	vendor/engines/dictum/tmp/engine.rb	/^  class Engine < Rails::Engine$/;"	c	class:Morum
+Engine	vendor/engines/dictum/tmp/railtie.rb	/^  class Engine < Rails::Engine$/;"	c	class:Morum
+FixPlacePhotoDate	db/migrate/20120930141350_fix_place_photo_date.rb	/^class FixPlacePhotoDate < ActiveRecord::Migration$/;"	c
+ForemFormatter	lib/forem_formatter.rb	/^class ForemFormatter$/;"	c
+MakeForemViewsPolymorphic	db/migrate/20120930141378_make_forem_views_polymorphic.forem.rb	/^class MakeForemViewsPolymorphic < ActiveRecord::Migration$/;"	c
+MongoidActions	vendor/engines/dictum/tmp/mongoid_hack.rb	/^module MongoidActions$/;"	m
+Morum	vendor/engines/dictum/tmp/engine.rb	/^module Morum$/;"	m
+Morum	vendor/engines/dictum/tmp/morum.rb	/^module Morum$/;"	m
+Morum	vendor/engines/dictum/tmp/railtie.rb	/^module Morum$/;"	m
+MorumTest	vendor/engines/dictum/test/morum_test.rb	/^class MorumTest < ActiveSupport::TestCase$/;"	c
+NavigationTest	vendor/engines/dictum/test/integration/navigation_test.rb	/^class NavigationTest < ActiveSupport::IntegrationCase$/;"	c
+NezabudemNet	config/application.rb	/^module NezabudemNet$/;"	m
+Notifier	app/mailers/notifier.rb	/^class Notifier < ActionMailer::Base$/;"	c
+NotifierTest	test/functional/notifier_test.rb	/^class NotifierTest < ActionMailer::TestCase$/;"	c
+Obelisk	app/models/obelisk.rb	/^class Obelisk < Place$/;"	c
+ObeliskControllerTest	test/functional/obelisk_controller_test.rb	/^class ObeliskControllerTest < ActionController::TestCase$/;"	c
+ObeliskHelper	app/helpers/obelisk_helper.rb	/^module ObeliskHelper$/;"	m
+ObeliskHelperTest	test/unit/helpers/obelisk_helper_test.rb	/^class ObeliskHelperTest < ActionView::TestCase$/;"	c
+ObelisksController	app/controllers/obelisks_controller.rb	/^class ObelisksController < ApplicationController$/;"	c
+ObelisksControllerTest	test/functional/obelisks_controller_test.rb	/^class ObelisksControllerTest < ActionController::TestCase$/;"	c
+ObelisksHelper	app/helpers/obelisks_helper.rb	/^module ObelisksHelper$/;"	m
+ObelisksHelperTest	test/unit/helpers/obelisks_helper_test.rb	/^class ObelisksHelperTest < ActionView::TestCase$/;"	c
+PhotoTest	test/unit/photo_test.rb	/^class PhotoTest < ActiveSupport::TestCase$/;"	c
+PhotoUploader	app/uploaders/photo_uploader.rb	/^class PhotoUploader < CarrierWave::Uploader::Base$/;"	c
+PhotosHelperTest	test/unit/helpers/photos_helper_test.rb	/^class PhotosHelperTest < ActionView::TestCase$/;"	c
+Place	app/models/place.rb	/^class Place < ActiveRecord::Base$/;"	c
+PlaceBelongsToUser	db/migrate/20120930141343_place_belongs_to_user.rb	/^class PlaceBelongsToUser < ActiveRecord::Migration$/;"	c
+PlacePhoto	app/models/place_photo.rb	/^class PlacePhoto < ActiveRecord::Base$/;"	c
+PlacePhotosController	app/controllers/place_photos_controller.rb	/^class PlacePhotosController < ApplicationController$/;"	c
+PlacePhotosControllerTest	test/functional/place_photos_controller_test.rb	/^class PlacePhotosControllerTest < ActionController::TestCase$/;"	c
+PlacePhotosHelper	app/helpers/place_photos_helper.rb	/^module PlacePhotosHelper$/;"	m
+PlaceTest	test/unit/place_test.rb	/^class PlaceTest < ActiveSupport::TestCase$/;"	c
+Placeable	lib/mixins/placeable.rb	/^module Placeable$/;"	m
+PlacesController	app/controllers/places_controller.rb	/^class PlacesController < ApplicationController$/;"	c
+PlacesControllerTest	test/functional/places_controller_test.rb	/^class PlacesControllerTest < ActionController::TestCase$/;"	c
+PlacesHelper	app/helpers/places_helper.rb	/^module PlacesHelper$/;"	m
+PlacesHelperTest	test/unit/helpers/places_helper_test.rb	/^class PlacesHelperTest < ActionView::TestCase$/;"	c
+Profile	app/models/profile.rb	/^class Profile < ActiveRecord::Base$/;"	c
+ProfileTest	test/unit/profile_test.rb	/^class ProfileTest < ActiveSupport::TestCase$/;"	c
+ProfilesController	app/controllers/profiles_controller.rb	/^class ProfilesController < ApplicationController$/;"	c
+ProfilesControllerTest	test/functional/profiles_controller_test.rb	/^class ProfilesControllerTest < ActionController::TestCase$/;"	c
+ProfilesHelper	app/helpers/profiles_helper.rb	/^module ProfilesHelper$/;"	m
+ProfilesHelperTest	test/unit/helpers/profiles_helper_test.rb	/^class ProfilesHelperTest < ActionView::TestCase$/;"	c
+RegistrationsController	app/controllers/registrations_controller.rb	/^class RegistrationsController < Devise::RegistrationsController$/;"	c
+RemoveDumpTags	db/migrate/20120930141385_remove_dump_tags.rb	/^class RemoveDumpTags < ActiveRecord::Migration$/;"	c
+RemovePendingReviewAddStateToForemPosts	db/migrate/20120930141374_remove_pending_review_add_state_to_forem_posts.forem.rb	/^class RemovePendingReviewAddStateToForemPosts < ActiveRecord::Migration$/;"	c
+RemovePendingReviewFromForemTopicsAddState	db/migrate/20120930141375_remove_pending_review_from_forem_topics_add_state.forem.rb	/^class RemovePendingReviewFromForemTopicsAddState < ActiveRecord::Migration$/;"	c
+RemoveTags	db/migrate/20120930141386_remove_tags.rb	/^class RemoveTags < ActiveRecord::Migration$/;"	c
+Role	app/models/role.rb	/^class Role < ActiveRecord::Base$/;"	c
+Sanitizer	lib/forem_formatter.rb	/^  class Sanitizer$/;"	c	class:ForemFormatter
+Soldier	app/models/soldier.rb	/^class Soldier < ActiveRecord::Base$/;"	c
+SoldierTest	test/unit/soldier_test.rb	/^class SoldierTest < ActiveSupport::TestCase$/;"	c
+SoldiersController	app/controllers/soldiers_controller.rb	/^class SoldiersController < ApplicationController$/;"	c
+SoldiersControllerTest	test/functional/soldiers_controller_test.rb	/^class SoldiersControllerTest < ActionController::TestCase$/;"	c
+SoldiersHelper	app/helpers/soldiers_helper.rb	/^module SoldiersHelper$/;"	m
+SoldiersHelperTest	test/unit/helpers/soldiers_helper_test.rb	/^class SoldiersHelperTest < ActionView::TestCase$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserTest	test/unit/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+Users	app/controllers/users/omniauth_callbacks_controllers.rb	/^class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController$/;"	c
+Users	app/helpers/users/omniauth_callbacks_helper.rb	/^module Users::OmniauthCallbacksHelper$/;"	m
+Users	test/functional/users/omniauth_callbacks_controller_test.rb	/^class Users::OmniauthCallbacksControllerTest < ActionController::TestCase$/;"	c
+Users	test/unit/helpers/users/omniauth_callbacks_helper_test.rb	/^class Users::OmniauthCallbacksHelperTest < ActionView::TestCase$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersControllerTest	test/functional/users_controller_test.rb	/^class UsersControllerTest < ActionController::TestCase$/;"	c
+UsersHaveAndBelongToManyRoles	db/migrate/20120930141342_users_have_and_belong_to_many_roles.rb	/^class UsersHaveAndBelongToManyRoles < ActiveRecord::Migration$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+UsersHelperTest	test/unit/helpers/users_helper_test.rb	/^class UsersHelperTest < ActionView::TestCase$/;"	c
+YandexMapAncestry	lib/mixins/yandex_map_ancestry.rb	/^module YandexMapAncestry$/;"	m
+_	app/helpers/application_helper.rb	/^  def _( tag )$/;"	f	class:ApplicationHelper
+add_from_list	app/controllers/soldiers_controller.rb	/^  def add_from_list$/;"	f	class:SoldiersController
+admin?	app/models/user.rb	/^  def admin?$/;"	f	class:User
+after_sign_up_path_for	app/controllers/registrations_controller.rb	/^  def after_sign_up_path_for(resource)$/;"	f	class:RegistrationsController
+before	app/controllers/soldiers_controller.rb	/^  def before$/;"	f	class:SoldiersController
+build_address_ancestry	lib/mixins/yandex_map_ancestry.rb	/^      def build_address_ancestry$/;"	f	class:YandexMapAncestry.included
+build_association	app/models/place.rb	/^  def build_association(*options)$/;"	f	class:ActiveRecord
+build_defaults	app/models/user.rb	/^  def build_defaults$/;"	f	class:User
+change	db/migrate/20120413132343_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20120413143253_create_soldiers.rb	/^  def change$/;"	f	class:CreateSoldiers
+change	db/migrate/20120415120738_create_places.rb	/^  def change$/;"	f	class:CreatePlaces
+change	db/migrate/20120416121827_add_ancestry_to_places.rb	/^  def change$/;"	f	class:AddAncestryToPlaces
+change	db/migrate/20120417120413_create_place_photos.rb	/^  def change$/;"	f	class:CreatePlacePhotos
+change	db/migrate/20120426183600_create_roles.rb	/^  def change$/;"	f	class:CreateRoles
+change	db/migrate/20120930141343_place_belongs_to_user.rb	/^  def change$/;"	f	class:PlaceBelongsToUser
+change	db/migrate/20120930141344_create_avatars.rb	/^  def change$/;"	f	class:CreateAvatars
+change	db/migrate/20120930141345_create_profiles.rb	/^  def change$/;"	f	class:CreateProfiles
+change	db/migrate/20120930141346_add_nick_to_user.rb	/^  def change$/;"	f	class:AddNickToUser
+change	db/migrate/20120930141347_add_user_to_soldier.rb	/^  def change$/;"	f	class:AddUserToSoldier
+change	db/migrate/20120930141348_add_date_to_place_photo.rb	/^  def change$/;"	f	class:AddDateToPlacePhoto
+change	db/migrate/20120930141349_add_user_to_place_photo.rb	/^  def change$/;"	f	class:AddUserToPlacePhoto
+change	db/migrate/20120930141350_fix_place_photo_date.rb	/^  def change$/;"	f	class:FixPlacePhotoDate
+change	db/migrate/20120930141351_add_soldirable.rb	/^  def change$/;"	f	class:AddSoldirable
+change	db/migrate/20120930141352_create_pages.scrib_engine.rb	/^  def change$/;"	f	class:CreatePages
+change	db/migrate/20120930141353_add_ancestry_to_pages.scrib_engine.rb	/^  def change$/;"	f	class:AddAncestryToPages
+change	db/migrate/20120930141356_create_forem_topics.forem.rb	/^  def change$/;"	f	class:CreateForemTopics
+change	db/migrate/20120930141357_create_forem_posts.forem.rb	/^  def change$/;"	f	class:CreateForemPosts
+change	db/migrate/20120930141358_add_reply_to_to_forem_posts.forem.rb	/^  def change$/;"	f	class:AddReplyToToForemPosts
+change	db/migrate/20120930141359_add_locked_to_forem_topics.forem.rb	/^  def change$/;"	f	class:AddLockedToForemTopics
+change	db/migrate/20120930141360_add_pinned_to_forem_topics.forem.rb	/^  def change$/;"	f	class:AddPinnedToForemTopics
+change	db/migrate/20120930141361_add_forem_views.forem.rb	/^  def change$/;"	f	class:AddForemViews
+change	db/migrate/20120930141362_add_updated_at_and_count_to_forem_views.forem.rb	/^  def change$/;"	f	class:AddUpdatedAtAndCountToForemViews
+change	db/migrate/20120930141363_add_hidden_to_forem_topics.forem.rb	/^  def change$/;"	f	class:AddHiddenToForemTopics
+change	db/migrate/20120930141364_add_indexes_to_topics_posts_views.forem.rb	/^  def change$/;"	f	class:AddIndexesToTopicsPostsViews
+change	db/migrate/20120930141365_create_forem_categories.forem.rb	/^  def change$/;"	f	class:CreateForemCategories
+change	db/migrate/20120930141366_add_category_id_to_forums.forem.rb	/^  def change$/;"	f	class:AddCategoryIdToForums
+change	db/migrate/20120930141367_create_forem_subscriptions.forem.rb	/^  def change$/;"	f	class:CreateForemSubscriptions
+change	db/migrate/20120930141368_add_pending_review_to_forem_posts.forem.rb	/^  def change$/;"	f	class:AddPendingReviewToForemPosts
+change	db/migrate/20120930141369_add_pending_review_to_forem_topics.forem.rb	/^  def change$/;"	f	class:AddPendingReviewToForemTopics
+change	db/migrate/20120930141371_create_forem_groups.forem.rb	/^  def change$/;"	f	class:CreateForemGroups
+change	db/migrate/20120930141372_create_forem_memberships.forem.rb	/^  def change$/;"	f	class:CreateForemMemberships
+change	db/migrate/20120930141373_create_forem_moderator_groups.forem.rb	/^  def change$/;"	f	class:CreateForemModeratorGroups
+change	db/migrate/20120930141374_remove_pending_review_add_state_to_forem_posts.forem.rb	/^  def change$/;"	f	class:RemovePendingReviewAddStateToForemPosts
+change	db/migrate/20120930141375_remove_pending_review_from_forem_topics_add_state.forem.rb	/^  def change$/;"	f	class:RemovePendingReviewFromForemTopicsAddState
+change	db/migrate/20120930141377_add_notified_to_forem_posts.forem.rb	/^  def change$/;"	f	class:AddNotifiedToForemPosts
+change	db/migrate/20120930141380_add_forem_admin.rb	/^  def change$/;"	f	class:AddForemAdmin
+change	db/migrate/20120930141381_add_forem_state.rb	/^  def change$/;"	f	class:AddForemState
+change	db/migrate/20120930141382_add_forem_auto_subscribe_to_user.rb	/^  def change$/;"	f	class:AddForemAutoSubscribeToUser
+change	db/migrate/20120930141384_add_place_photos_count_to_places.rb	/^  def change$/;"	f	class:AddPlacePhotosCountToPlaces
+change	db/migrate/20120930141388_add_title_to_roles.rb	/^  def change$/;"	f	class:AddTitleToRoles
+change	db/migrate/20120930141389_add_columns_to_users.rb	/^  def change$/;"	f	class:AddColumnsToUsers
+change	vendor/engines/dictum/db/migrate/20111213212901_add_ancestry_to_dictum_comments.rb	/^  def change$/;"	f	class:AddAncestryToDictumComments
+collection	vendor/engines/dictum/tmp/mongoid_hack.rb	/^  def collection$/;"	f	class:MongoidActions
+convert_to_grayscale	app/uploaders/photo_uploader.rb	/^  def convert_to_grayscale$/;"	f	class:PhotoUploader
+create	app/controllers/obelisks_controller.rb	/^  def create$/;"	f	class:ObelisksController
+create	app/controllers/place_photos_controller.rb	/^  def create$/;"	f	class:PlacePhotosController
+create	app/controllers/places_controller.rb	/^  def create$/;"	f	class:PlacesController
+create	app/controllers/soldiers_controller.rb	/^  def create$/;"	f	class:SoldiersController
+default_url	app/uploaders/avatar_uploader.rb	/^  def default_url$/;"	f	class:AvatarUploader
+destroy	app/controllers/obelisks_controller.rb	/^  def destroy$/;"	f	class:ObelisksController
+destroy	app/controllers/place_photos_controller.rb	/^  def destroy$/;"	f	class:PlacePhotosController
+destroy	app/controllers/places_controller.rb	/^  def destroy$/;"	f	class:PlacesController
+destroy	app/controllers/soldiers_controller.rb	/^  def destroy$/;"	f	class:SoldiersController
+devise_error_messages!	app/helpers/devise_helper.rb	/^  def devise_error_messages!$/;"	f	class:DeviseHelper
+display_autor	app/helpers/places_helper.rb	/^  def display_autor$/;"	f	class:PlacesHelper
+down	db/migrate/20120413132425_create_rails_admin_histories_table.rb	/^  def self.down$/;"	F	class:CreateRailsAdminHistoriesTable
+down	db/migrate/20120510123606_acts_as_taggable_on_migration.rb	/^  def self.down$/;"	F	class:ActsAsTaggableOnMigration
+down	db/migrate/20120930141342_users_have_and_belong_to_many_roles.rb	/^  def down$/;"	f	class:UsersHaveAndBelongToManyRoles
+down	db/migrate/20120930141354_create_ckeditor_assets.rb	/^  def self.down$/;"	F	class:CreateCkeditorAssets
+down	db/migrate/20120930141355_create_forem_forums.forem.rb	/^  def down$/;"	f	class:CreateForemForums
+down	db/migrate/20120930141370_add_forem_topics_last_post_at.forem.rb	/^  def down$/;"	f	class:AddForemTopicsLastPostAt
+down	db/migrate/20120930141375_remove_pending_review_from_forem_topics_add_state.forem.rb	/^  def down$/;"	f	class:RemovePendingReviewFromForemTopicsAddState
+down	db/migrate/20120930141376_approve_all_topics_and_posts.forem.rb	/^  def down$/;"	f	class:ApproveAllTopicsAndPosts
+down	db/migrate/20120930141378_make_forem_views_polymorphic.forem.rb	/^  def down$/;"	f	class:MakeForemViewsPolymorphic
+down	db/migrate/20120930141379_add_forem_view_fields.forem.rb	/^  def down$/;"	f	class:AddForemViewFields
+down	db/migrate/20120930141383_add_need_ocr_to_place_photos.rb	/^  def down$/;"	f	class:AddNeedOcrToPlacePhotos
+down	db/migrate/20120930141385_remove_dump_tags.rb	/^  def down$/;"	f	class:RemoveDumpTags
+down	db/migrate/20120930141386_remove_tags.rb	/^  def down$/;"	f	class:RemoveTags
+down	vendor/engines/dictum/db/migrate/20111213210627_create_dictum_comments.rb	/^  def down$/;"	f	class:CreateDictumComments
+edit	app/controllers/obelisks_controller.rb	/^  def edit$/;"	f	class:ObelisksController
+edit	app/controllers/place_photos_controller.rb	/^  def edit$/;"	f	class:PlacePhotosController
+edit	app/controllers/places_controller.rb	/^  def edit$/;"	f	class:PlacesController
+edit	app/controllers/profiles_controller.rb	/^  def edit$/;"	f	class:ProfilesController
+edit	app/controllers/soldiers_controller.rb	/^  def edit$/;"	f	class:SoldiersController
+facebook	app/controllers/users/omniauth_callbacks_controllers.rb	/^ def facebook$/;"	f	class:Users
+find_for_facebook_oauth	app/models/user.rb	/^  def self.find_for_facebook_oauth access_token$/;"	F	class:User
+find_for_vkontakte_oauth	app/models/user.rb	/^  def self.find_for_vkontakte_oauth access_token$/;"	F	class:User.find_for_facebook_oauth
+forem_user	app/controllers/application_controller.rb	/^  def forem_user$/;"	f	class:ApplicationController
+format	lib/forem_formatter.rb	/^  def self.format( text )$/;"	F	class:ForemFormatter
+forum_avatar	app/models/user.rb	/^  def forum_avatar$/;"	f	class:User
+full_address	app/models/place.rb	/^  def full_address$/;"	f	class:Place
+get_in_bounds	app/models/place.rb	/^  def self.get_in_bounds(x1, y1, x2, y2, options)$/;"	F	class:Place
+has_places?	app/models/place.rb	/^  def has_places?$/;"	f	class:Place
+help	app/controllers/application_controller.rb	/^  def help$/;"	f	class:ApplicationController
+included	lib/mixins/placeable.rb	/^  def self.included(base)$/;"	F	class:Placeable
+included	lib/mixins/yandex_map_ancestry.rb	/^  def self.included(base)$/;"	F	class:YandexMapAncestry
+index	app/controllers/obelisks_controller.rb	/^  def index$/;"	f	class:ObelisksController
+index	app/controllers/place_photos_controller.rb	/^  def index$/;"	f	class:PlacePhotosController
+index	app/controllers/places_controller.rb	/^  def index$/;"	f	class:PlacesController
+index	app/controllers/profiles_controller.rb	/^  def index$/;"	f	class:ProfilesController
+index	app/controllers/soldiers_controller.rb	/^  def index$/;"	f	class:SoldiersController
+index	vendor/engines/dictum/app/controllers/dictum/comments_controller.rb	/^    def index$/;"	f	class:Dictum.CommentsController
+initialize	app/models/ability.rb	/^  def initialize(user)$/;"	f	class:Ability
+insert_node	lib/mixins/yandex_map_ancestry.rb	/^      def insert_node(p, node)$/;"	f	class:YandexMapAncestry.included
+make_breadcrumbs	app/controllers/application_controller.rb	/^  def make_breadcrumbs$/;"	f	class:ApplicationController
+name	app/models/place.rb	/^  def name$/;"	f	class:Place
+need_ocr?	app/models/place.rb	/^  def need_ocr?$/;"	f	class:Place
+need_photos?	app/models/place.rb	/^  def need_photos?$/;"	f	class:Place
+new	app/controllers/obelisks_controller.rb	/^  def new$/;"	f	class:ObelisksController
+new	app/controllers/place_photos_controller.rb	/^  def new$/;"	f	class:PlacePhotosController
+new	app/controllers/places_controller.rb	/^  def new$/;"	f	class:PlacesController
+new	app/controllers/soldiers_controller.rb	/^  def new$/;"	f	class:SoldiersController
+node?	app/models/place.rb	/^  def node?$/;"	f	class:Place
+ocr_complete	app/controllers/application_controller.rb	/^  def ocr_complete$/;"	f	class:ApplicationController
+own_sanitize	lib/forem_formatter.rb	/^    def own_sanitize( text )$/;"	f	class:ForemFormatter.Sanitizer
+path_breadcrumbs	app/helpers/places_helper.rb	/^  def path_breadcrumbs(place)$/;"	f	class:PlacesHelper
+photo=	app/models/avatar.rb	/^  def photo=(obj)$/;"	f	class:Avatar
+photo=	app/models/place_photo.rb	/^  def photo=(obj)$/;"	f	class:PlacePhoto
+photos	app/controllers/profiles_controller.rb	/^  def photos$/;"	f	class:ProfilesController
+photos_how_much	app/helpers/application_helper.rb	/^  def photos_how_much$/;"	f	class:ApplicationHelper
+photos_need_ocr	app/helpers/application_helper.rb	/^  def photos_need_ocr$/;"	f	class:ApplicationHelper
+place	app/controllers/place_photos_controller.rb	/^    def place$/;"	f	class:PlacePhotosController
+place_photos	app/models/user.rb	/^  def place_photos$/;"	f	class:User
+places	app/controllers/profiles_controller.rb	/^  def places$/;"	f	class:ProfilesController
+places_how_much	app/helpers/application_helper.rb	/^  def places_how_much$/;"	f	class:ApplicationHelper
+prepare_tags	app/models/place.rb	/^  def prepare_tags$/;"	f	class:Place
+registered	app/controllers/application_controller.rb	/^  def registered$/;"	f	class:ApplicationController
+render	lib/bootstrap_breadcrumbs_builder.rb	/^  def render$/;"	f	class:BootstrapBreadcrumbsBuilder
+render_comments	vendor/engines/dictum/app/helpers/comments_helper.rb	/^  def render_comments$/;"	f	class:CommentsHelper
+render_element	lib/bootstrap_breadcrumbs_builder.rb	/^  def render_element(element)$/;"	f	class:BootstrapBreadcrumbsBuilder.render
+render_json	vendor/engines/dictum/app/helpers/comments_helper.rb	/^  def render_json page_params, data$/;"	f	class:CommentsHelper
+role?	app/models/user.rb	/^  def role?(*role_names)$/;"	f	class:User
+sanitize	lib/forem_formatter.rb	/^  def self.sanitize( text )$/;"	F	class:ForemFormatter
+set_locale	app/controllers/application_controller.rb	/^  def set_locale$/;"	f	class:ApplicationController
+show	app/controllers/obelisks_controller.rb	/^  def show$/;"	f	class:ObelisksController
+show	app/controllers/place_photos_controller.rb	/^  def show$/;"	f	class:PlacePhotosController
+show	app/controllers/places_controller.rb	/^  def show$/;"	f	class:PlacesController
+show	app/controllers/profiles_controller.rb	/^  def show$/;"	f	class:ProfilesController
+show	app/controllers/soldiers_controller.rb	/^  def show$/;"	f	class:SoldiersController
+show_tag	app/helpers/application_helper.rb	/^  def show_tag( t )$/;"	f	class:ApplicationHelper
+soldiers	app/controllers/profiles_controller.rb	/^  def soldiers$/;"	f	class:ProfilesController
+soldiers	app/models/user.rb	/^  def soldiers$/;"	f	class:User
+soldiers_how_much	app/helpers/application_helper.rb	/^  def soldiers_how_much$/;"	f	class:ApplicationHelper
+store_dir	app/uploaders/avatar_uploader.rb	/^  def store_dir$/;"	f	class:AvatarUploader
+store_dir	app/uploaders/photo_uploader.rb	/^  def store_dir$/;"	f	class:PhotoUploader
+test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
+title	app/models/role.rb	/^  def title$/;"	f	class:Role
+to_s	app/models/user.rb	/^  def to_s$/;"	f	class:User
+tree	vendor/engines/dictum/app/models/dictum/message.rb	/^    def tree( topic )$/;"	f	class:Dictum.Comments
+up	db/migrate/20120413132425_create_rails_admin_histories_table.rb	/^   def self.up$/;"	F	class:CreateRailsAdminHistoriesTable
+up	db/migrate/20120510123606_acts_as_taggable_on_migration.rb	/^  def self.up$/;"	F	class:ActsAsTaggableOnMigration
+up	db/migrate/20120930141342_users_have_and_belong_to_many_roles.rb	/^  def up$/;"	f	class:UsersHaveAndBelongToManyRoles
+up	db/migrate/20120930141354_create_ckeditor_assets.rb	/^  def self.up$/;"	F	class:CreateCkeditorAssets
+up	db/migrate/20120930141355_create_forem_forums.forem.rb	/^  def up$/;"	f	class:CreateForemForums
+up	db/migrate/20120930141370_add_forem_topics_last_post_at.forem.rb	/^  def up$/;"	f	class:AddForemTopicsLastPostAt
+up	db/migrate/20120930141376_approve_all_topics_and_posts.forem.rb	/^  def up$/;"	f	class:ApproveAllTopicsAndPosts
+up	db/migrate/20120930141378_make_forem_views_polymorphic.forem.rb	/^  def up$/;"	f	class:MakeForemViewsPolymorphic
+up	db/migrate/20120930141379_add_forem_view_fields.forem.rb	/^  def up$/;"	f	class:AddForemViewFields
+up	db/migrate/20120930141383_add_need_ocr_to_place_photos.rb	/^  def up$/;"	f	class:AddNeedOcrToPlacePhotos
+up	db/migrate/20120930141385_remove_dump_tags.rb	/^  def up$/;"	f	class:RemoveDumpTags
+up	db/migrate/20120930141386_remove_tags.rb	/^  def up$/;"	f	class:RemoveTags
+up	db/migrate/20120930141387_add_soldiers_count_to_places.rb	/^  def up$/;"	f	class:AddSoldiersCountToPlaces
+up	vendor/engines/dictum/db/migrate/20111213210627_create_dictum_comments.rb	/^  def up$/;"	f	class:CreateDictumComments
+update	app/controllers/obelisks_controller.rb	/^  def update$/;"	f	class:ObelisksController
+update	app/controllers/place_photos_controller.rb	/^  def update$/;"	f	class:PlacePhotosController
+update	app/controllers/places_controller.rb	/^  def update$/;"	f	class:PlacesController
+update	app/controllers/profiles_controller.rb	/^  def update$/;"	f	class:ProfilesController
+update	app/controllers/soldiers_controller.rb	/^  def update$/;"	f	class:SoldiersController
+users_how_much	app/helpers/application_helper.rb	/^  def users_how_much$/;"	f	class:ApplicationHelper
+vkontakte	app/controllers/users/omniauth_callbacks_controllers.rb	/^  def vkontakte$/;"	f	class:Users.facebook
+welcome	app/controllers/application_controller.rb	/^  def welcome$/;"	f	class:ApplicationController

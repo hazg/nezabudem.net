@@ -1,0 +1,4 @@
+%p
+  Здравствуйте #{@resource.email}!
+%p Вы можете подтвердить почтовый адрес, перейдя по ссылке:
+%p= link_to 'Подтвердить аккаунт', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

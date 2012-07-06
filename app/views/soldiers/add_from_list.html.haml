@@ -1,0 +1,70 @@
+-#= simple_form_for :soldiers
+%h4 Проверьте введенный список
+%div.row
+  %div.span5
+    = simple_form_for :soldiers, :url => soldiers_add_from_list_path({:save => true}) do |f|
+      = f.input :soldirable_type, :input_html => {:value => @soldirable_type}, :as => :hidden
+      = f.input :soldirable_id, :input_html => {:value => @soldirable_id}, :as => :hidden
+      = f.input :place_id, :input_html => {:value => @place_id}, :as => :hidden
+      = f.input :list, :input_html => {:value => ''}, :as => :hidden
+      %table.table.table-striped.soldiers-check-table
+        %tr
+          %th= 'ФИО'
+          %th= 'Действия'
+        %tr.empty{:style => 'display:none'}
+          %td
+            %div.fio{:contenteditable=>'true'}
+          %td
+            %i.icon-pencil{ :rel=>:tooltip, :title=>'Редактировать'}
+            %i.icon-remove{ :rel=>:tooltip, :title=>'Удалить'}
+
+        - @soldiers.each do |s|
+          %tr
+            %td
+              %div.fio{:contenteditable=>'true'}= s.fio
+            %td
+              %i.icon-pencil{ :rel=>:tooltip, :title=>'Редактировать'}
+              %i.icon-remove{ :rel=>:tooltip, :title=>'Удалить'}
+
+      %button.btn.btn-add
+        %i.icon-plus-sign{ :rel=>:tooltip, :title=>'Добавить фамилию'}
+        Добавить еще
+      = f.submit :value => 'Подтвердить список', :class => 'btn btn-danger'
+        
+  - if @photo
+    %div.span6
+      %div.thumbnail
+        = image_tag(@photo.photo)
+= link_to 'Отмена', 'javascript:history.back();', :class => :btn
+%style
+  :sass
+    div.fio
+      border-bottom: 1px dashed gray
+:coffeescript
+  tbl = $('.soldiers-check-table')
+
+  window.update_binds = ()=>
+
+    tbl.find('.icon-remove').unbind('click').click (e) =>
+      if confirm('Удалить?')
+        $(e.target).parents('tr').remove()
+
+    tbl.find('.icon-pencil').unbind('click').click (e) =>
+      $(e.target).parents('tr').find('div.fio').focus()
+  window.update_binds()
+
+  $('form.simple_form.soldiers').submit (e) =>
+    list = new Array
+    $('div.fio', tbl).each (i, o) =>
+      if text = $(o).text()
+        list.push(text)
+    
+    $(e.target).find('input#soldiers_list').val(list.join("\r"))
+
+
+  $('button.btn-add').click (e) =>
+    tr = $($('tr.empty').get(0)).clone().show()
+    tbl.append(tr)
+    tr.find('div.fio').focus()
+    window.update_binds()
+    false

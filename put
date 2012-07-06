@@ -1,0 +1,24 @@
+#!/bin/bash
+
+rsync \
+	-rvv \
+	--exclude='*.bz2' \
+	--exclude='.' \
+	--exclude='*.zip' \
+	--exclude='put' \
+	--exclude='get' \
+	--exclude='.*' \
+	--exclude='.' \
+	--exclude='cache/' \
+	--exclude="tmp/" \
+	--exclude="ckeditor_assets/" \
+	--exclude="users/" \
+	--exclude="_source/" \
+	--exclude="*.ini" \
+  --exclude="uploads/" \
+  --exclude="database.yml" \
+	--exclude="log/*" \
+  --exclude="*.lock" \
+	--exclude="config/robots.txt" \
+	/home/ss/www/nezabudem.net/ \
+	webmaster@hazg.net:/var/www/webmaster/data/www_rails3/nezabudem.net/;

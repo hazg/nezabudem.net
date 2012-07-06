@@ -1,0 +1,6 @@
+= link_to '<i class="icon-chevron-left"></i>Вернуться к объекту'.html_safe, polymorphic_path(@photo.place), :class => 'btn' 
+%h1 Редактировать фотографию
+= render 'form'
+
+= link_to 'Показать', [@photo.place, @photo]
+

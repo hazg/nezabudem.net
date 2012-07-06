@@ -1,0 +1,2 @@
+module ObeliskHelper
+end

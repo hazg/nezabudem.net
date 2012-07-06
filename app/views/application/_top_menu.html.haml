@@ -1,0 +1,22 @@
+%div.navbar
+  %div.navbar-inner.navbar-fixed
+    %div.container
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        - 3.times do
+          %span.icon-bar
+      %ul.nav.pull-right.nav-collapse
+        - if user_signed_in?
+          %li= link_to 'Выход', destroy_user_session_path, :method => 'delete'
+          - if current_user.admin?
+            %li= link_to 'Админ', rails_admin_path
+          %li= link_to current_user.email, current_user.profile
+        - else
+          %li= link_to( "Вход", new_user_session_path )
+      %ul.nav-pills.pull-left.top-menu
+        %ul.nav
+          %li
+            %a.brand{:href => "/"} Nezabudem.NET
+          %li= link_to 'Обелиски', obelisks_path
+          %li= link_to 'Участвуй в проекте!', help_path
+          %li= link_to 'Форум', forem.root_path
+

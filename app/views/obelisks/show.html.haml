@@ -1,0 +1,65 @@
+%style
+  :sass
+    ul.thumbnails.desks
+      border: 1px solid gray
+      max-height: 500px
+      overflow-x: hidden
+      padding-top: 10px
+      li.thumbnail
+        min-height: 450px
+        float: left
+        a
+          display: block
+          max-width: 200px
+      
+- if @place.kind == 'node'
+  = render :partial => 'show_node'
+- else
+  %h1= @place.title
+  - content_for :title do
+    = @place.name
+  = display_autor
+  %h2.address= @place.name
+  
+  - if can? :add_photo, @place
+    %div.btn-toolbar
+      %div.btn-group
+        %button.btn.btn-danger.dropdown-toggle{'data-toggle'=>'dropdown', 'data-target'=>'dropdown-menu'}
+          Добавить фотографию
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href=>new_obelisk_photo_path(@place)}
+              %i.icon-picture
+              Обычная
+          %li
+            %a{:href=>new_obelisk_photo_path(@place, :need_ocr => true)}
+              %i.icon-list-alt
+              С поименным списком
+  = render :partial => 'places/gallery'
+
+
+  - if @place.description?
+    %h3 Описание
+    = simple_format(@place.description)
+  - if @place.soldiers.count > 0
+    %div.row
+      %div.span11
+        %ul.thumbnails.desks.border-radius5
+          - @place.soldiers.order(:fio).each_slice(30).to_a.each do |soldiers|
+            %li.thumbnail
+              - soldiers.each do |s|
+                = link_to s.fio, soldier_path(s)
+
+  = render :partial => 'places/position_show'  
+  - if can? :delete, @place
+    = link_to 'Удалить', obelisk_path(@place), :method => :delete, :confirm => 'Удалить?'
+  - if can? :edit, @place
+    = link_to 'Редактировать', edit_obelisk_path(@place), :class => 'btn btn-danger'
+  - if can? :create, Obelisk
+    = link_to 'Добавить объект', new_obelisk_path, :class => 'btn btn-large btn-danger'
+  - else
+    = link_to 'Добавить объект', '#', :class => 'for-members btn btn-large btn-danger'
+:coffeescript
+  #$(window.document).ready () ->
+  

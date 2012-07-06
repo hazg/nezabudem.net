@@ -1,0 +1,17 @@
+%div.well.places-index
+  - content_for :title do
+    = @place.name
+  %h1= @place.name
+  - @place.children.order(:address).each do |o|
+    - if o.node?
+      - if o.subtree.without_nodes.size > 0
+        %div= link_to(o.name, o)
+    - else
+      %div= link_to o.name, o
+= paginate @places
+%ul.thumbnails
+  - @places.each do |p|
+    = render :partial => 'places/thumb', :locals => {:p => p}
+= paginate @places
+
+= link_to 'Назад', 'javascript:history.back();', :class => 'btn btn-inverse'

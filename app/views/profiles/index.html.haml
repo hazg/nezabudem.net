@@ -1,0 +1,24 @@
+%h1 Участники проекта Nezabudem.NET
+= paginate @profiles
+%table.table.profiles
+  %tr
+    %th Аватар
+    %th Ник
+    %th Оцифрованно имен
+    %th Объектов
+    %th Фотографий
+
+  - @profiles.each do |profile|
+    %tr.clickable
+      %td= image_tag( profile.user.avatar.photo.icon )
+      %td= link_to( profile.user.nick, profile )
+      %td= profile.user.soldiers.count
+      %td= profile.user.places.count
+      %td= profile.user.place_photos.count
+
+= paginate @profiles
+
+:coffeescript
+  $('tr.clickable').each ()->
+    $(this).click ()->
+      window.location = $('a', this).attr('href')

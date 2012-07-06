@@ -1,0 +1,44 @@
+:javascript
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter14317624 = new Ya.Metrika({id:14317624, enableAll: true, webvisor:true});
+          } catch(e) {}
+      });
+      
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+%noscript
+  %div
+    %img{:src=>"//mc.yandex.ru/watch/14317624", :style=>"position:absolute; left:-9999px;", :alt=>""} 
+:javascript
+    var reformalOptions = {
+        project_id: 63870,
+        project_host: "nezabudem.reformal.ru",
+        tab_orientation: "left",
+        tab_indent: "60%",
+        tab_bg_color: "#420200",
+        tab_border_color: "#FFFFFF",
+        tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/4bfb34d91c8d7fb481972ca3c84aec38/left/0/tab.png",
+        tab_border_width: 1
+    };
+    
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript'; script.async = true;
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    })();
+%noscript
+  %a{:href=>"http://reformal.ru"}
+    %img{:src=>"http://media.reformal.ru/reformal.png"}
+    %a{:href=>"http://nezabudem.reformal.ru"} Oтзывы и предложения для Незабудем.NET

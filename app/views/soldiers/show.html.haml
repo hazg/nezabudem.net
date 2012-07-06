@@ -1,0 +1,11 @@
+%p#notice= notice
+= link_to '<i class="icon-chevron-left"></i>Вернуться к объекту'.html_safe, polymorphic_path(@soldier.place), :class => 'btn' 
+- if not @soldier.user.nil? #TODO: WTF с хозяином фамилии???
+  = link_to @soldier.user.nick, profile_path(@soldier.user.profile)
+%div.well
+  %h3= @soldier.fio
+  %ul.thumbnails
+    %li.thumbnail
+      = image_tag(@soldier.soldirable.photo)
+- if can? :edit, @soldier
+  = link_to 'Редактировать', edit_soldier_path(@soldier), :class => 'btn btn-danger'

@@ -1,0 +1,6 @@
+%table.table
+  - @soldiers.each do |x|
+    %tr
+      %td= link_to(x.fio, soldier_path(x))
+
+= paginate @soldiers

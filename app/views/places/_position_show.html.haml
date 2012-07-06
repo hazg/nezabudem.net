@@ -1,0 +1,11 @@
+- content_for :after_footer do
+  - model_name = "#{controller.class.name.sub("Controller", "").singularize.downcase}"
+  :coffeescript
+    window.ym_model = "#{model_name}"
+  = javascript_include_tag "http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU#{"&mode=debug" if Rails.env.development?}"
+  = javascript_include_tag 'places'
+  :coffeescript
+    #$(document).ready ()->
+    d = new PlaceMap({center:["#{@place.lat}","#{@place.lng}"]})
+
+%div#map{:style=>'width:100%;height:400px'}

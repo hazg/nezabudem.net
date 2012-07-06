@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lat: 1.5
+  lng: 1.5
+  name: "Place 1"
+  address: "Address 1"
+  description: "Description 1"
+
+two:
+  lat: 1.5
+  lng: 1.5
+  name: "Place 2"
+  address: "Address 2"
+  description: "Description 2"

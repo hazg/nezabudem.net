@@ -1,0 +1,54 @@
+ru:
+  help: Участвуй в проекте!
+  tags:
+    new: новое
+    no_photos: нет фото
+    need_ocr: нуждаeтся в оцифровке
+  breadcrumbs:
+
+    registration:
+      new: Регистрация
+    session:
+      new: Вход на сайт
+    password:
+      new: Восстановление пароля
+    profile:
+      edit: Профиль
+      show: Профиль
+    registration:
+      edit: Пароль
+      new: Новый пользователь
+  user:
+    nick:
+      valid_hint: "Можно использовать только буквы, цифры и -_(),. <br /> минимальная длинна - 3 символа."
+  activerecord:
+    models:
+      obelisk: Обелиск
+      place_photo: Фотография
+      user: Пользователь
+      avatar: Аватар
+      profile: Профиль
+      soldier: Человек
+    attributes:
+      user:
+        nick: Ник
+      profile:
+        fio: ФИО
+        about: О себе
+      avatar:
+        photo: Фото
+      obelisk:
+        name: "Название"
+        description: "Описание"
+        address: "Адрес"
+        lat: "Широта"
+        lng: "Долгота"
+        need_ocr: 'Нуждается в оцифровке'
+      place_photo:
+        tag_list: "Теги"
+        title: "Заголовок"
+        description: "Описание"
+        photo: "Файл"
+        photo_at: "Дата съемки"
+      soldier:
+        fio: ФИО

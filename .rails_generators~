@@ -1,0 +1,492 @@
+---
+simple_form:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --template-engine=
+- --bootstrap
+scaffold_controller:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --force-plural
+- --orm=
+- --template-engine=
+- --test-framework
+- --helper
+responders_controller:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --force-plural
+- --orm=
+- --template-engine=
+- --test-framework
+- --helper
+responders:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+rails_admin:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+rails_admin:uninstall:
+- --force
+- --pretend
+- --quiet
+- --skip
+scss:scaffold:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+scss:assets:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+sass:scaffold:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+sass:assets:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+remotipart:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+paper_trail:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --with-changes
+model:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm
+resource:
+- --template-engine=
+- --test-framework
+- --helper
+- --assets
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm
+- --force-plural
+- --resource-controller=
+- --actions=
+scaffold:
+- --template-engine=
+- --test-framework
+- --helper
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm
+- --force-plural
+- --stylesheets
+- --stylesheet-engine=
+- --scaffold-controller=
+- --assets
+less:scaffold:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+less:assets:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+kaminari:views:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --template-engine=
+kaminari:config:
+- --force
+- --pretend
+- --quiet
+- --skip
+jquery:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+haml:controller:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+haml:mailer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+haml:scaffold:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --force-plural
+- --form-builder=
+active_record:devise:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+mongoid:devise:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+devise:views:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --form-builder=
+- --markerb
+devise:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --force-plural
+- --orm
+- --routes
+devise:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --orm=
+coffee:assets:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+ckeditor:models:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --orm=
+- --backend=
+ckeditor:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --version=
+- --orm=
+- --path=
+uploader:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+cancan:ability:
+- --force
+- --pretend
+- --quiet
+- --skip
+nested_form:install:
+- --force
+- --pretend
+- --quiet
+- --skip
+acts_as_taggable_on:migration:
+- --force
+- --pretend
+- --quiet
+- --skip
+integration_test:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --integration-tool=
+session_migration:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm
+helper:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --test-framework
+task:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+generator:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --namespace
+observer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm
+assets:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --javascripts
+- --stylesheets
+- --javascript-engine=
+- --stylesheet-engine=
+controller:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --template-engine=
+- --test-framework
+- --helper
+- --assets
+plugin_new:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --help
+- --ruby=
+- --builder=
+- --template=
+- --skip-gemfile
+- --skip-bundle
+- --skip-git
+- --skip-active-record
+- --skip-sprockets
+- --database=
+- --javascript=
+- --skip-javascript
+- --dev
+- --edge
+- --skip-test-unit
+- --old-style-hash
+- --dummy-path=
+- --full
+- --mountable
+- --skip-gemspec
+performance_test:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --performance-tool=
+migration:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --orm
+test_unit:helper:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:observer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:performance:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:mailer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:scaffold:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --force-plural
+test_unit:model:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --fixture
+- --fixture-replacement=
+test_unit:integration:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:controller:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+test_unit:plugin:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+js:assets:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+active_record:session_migration:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+active_record:observer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --test-framework
+active_record:model:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --migration
+- --timestamps
+- --parent=
+- --indexes
+- --test-framework
+active_record:migration:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+mailer:
+- --force
+- --pretend
+- --quiet
+- --skip
+- --skip-namespace
+- --old-style-hash
+- --template-engine=
+- --test-framework
+friendly_id:
+- --force
+- --pretend
+- --quiet
+- --skip

@@ -1,0 +1,62 @@
+%p#notice= notice
+
+= link_to '<i class="icon-chevron-left"></i>Вернуться к объекту'.html_safe, polymorphic_path(@photo.place), :class => 'btn' 
+
+- if can? :edit, @photo
+  = link_to 'Изменить', "#{@photo.id}/edit", :class => 'btn btn-danger'
+%div.row
+  %div.thumbnail{:class => ((@photo.need_ocr or @photo.soldiers.count) ? 'span7' : '')}
+    - if @photo.title
+      %h5= @photo.title
+    = link_to "автор: #{@photo.user.nick}", profile_path(@photo.user.profile)
+    - if @photo.photo_at
+      %div= "Дата съемки: #{@photo.photo_at}"
+    -#%a{:href => @photo.photo.url, :style => 'margin: auto;display: block; text-align: center'}
+    = image_tag @photo.photo.url(:normal)
+    %p
+      = link_to 'Изображение целиком (в новом окне)', @photo.photo.url, :target => '_blank'
+    - if @photo.description
+      %div= simple_format(@photo.description) 
+    - if can?(:edit, @photo) and not @photo.need_ocr?
+      = simple_form_for([@photo.place, @photo]) do |f|
+        = f.input :need_ocr, :input_html => {:value => 1}, :as => :hidden
+        = f.submit "Нуждается в переоцифровке"
+
+  
+  
+  
+  - if @photo.need_ocr
+    %div.span4
+      %div.well
+        %h5 Список ФИО (в новой строке)
+        = simple_form_for :soldiers, :url => soldiers_add_from_list_path do |f|
+          %textarea#soldiers_list{:name => :'soldiers[list]', :style=>'width: 100%;height: 350px'}
+          = f.input :soldirable_type, :input_html => {:value => @photo.class.name}, :as => :hidden
+          = f.input :soldirable_id, :input_html => {:value => @photo.id}, :as => :hidden
+          = f.input :place_id, :input_html => {:value => @photo.place.id}, :as => :hidden
+          = f.submit :value => 'Добавить', :class => 'btn btn-danger'
+
+  
+  
+  -if @photo.soldiers.count
+    %div.span4
+      %h5 Оцифрованные фамилии
+      %ul.nav.nav-list
+        - @photo.soldiers.order(:fio).each do |s|
+          %li= link_to s.fio, s
+
+
+
+
+
+
+- if @photo.soldiers.count > 0
+  %div.row
+    %div.well
+    - if to_ocr = PlacePhoto.need_ocr.where("place_id <> #{@photo.place.id}").limit(1).first
+      = link_to 'Следующий объект >>', polymorphic_path([to_ocr.place, to_ocr]), :class => 'btn btn-large'
+      -# if can? :create, Soldier    
+        -# if can? :manage, @photo and need_ocr?
+          = simple_form_for [@place, @photo] do |f|
+            %input{:name => :remove_tags, :value => I18n.t('tags.need_ocr'), :type=>:hidden}
+            = f.submit :value => 'Все фамилии оцифрованны!', :class=>'btn btn-success btn-large'

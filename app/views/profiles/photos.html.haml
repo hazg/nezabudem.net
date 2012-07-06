@@ -1,0 +1,7 @@
+%ul.thumbnails
+  - @photos.each do |x|
+    %li.thumbnail{:style => 'height:150px'}
+      %div
+        %a{:href => polymorphic_path([x.place, x])}= image_tag x.photo.thumb
+
+= paginate @photos

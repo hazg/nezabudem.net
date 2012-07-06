@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fio: "Vasia V.V."
+  about: "Superperetz"
+
+two:
+  fio: 'Gena D.D.'
+  about: 'Веселый парень'

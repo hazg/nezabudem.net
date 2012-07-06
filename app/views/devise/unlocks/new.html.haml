@@ -1,0 +1,9 @@
+%h2 Инструкции для разблокирования
+= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email
+  %div= f.submit "Переслать инструкции для разблокирования"
+= render :partial => "devise/shared/links"

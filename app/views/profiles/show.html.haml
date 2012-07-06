@@ -1,0 +1,22 @@
+- if can? :edit, @profile
+  = link_to 'Редактировать профиль', [:edit, @profile]
+%p#notice= notice
+%div.row
+  %div.span2.thumbnail{:style => 'text-align: center; padding: 0px'}
+    = image_tag @profile.user.avatar.photo.url :thumb
+  %div.span4
+    = "ФИО: #{@profile.fio}" if not @profile.fio.blank?
+    - if not @profile.about.blank?
+      %div
+        %div
+          %i О себе
+        %div= simple_format(@profile.about)
+  %div.span4
+    %ul.nav.nav-list
+      - if s = Soldier.where(:user_id => @profile.user_id).count
+        %li
+          = link_to "Оцифрованно имен: <b>#{s}</b>".html_safe, @profile.id.to_s+'/soldiers'
+      - if not @profile.user.places.empty?
+        %li= link_to "Объекты: #{@profile.user.places.count}", @profile.id.to_s+'/places'
+      - if not @profile.user.place_photos.empty?
+        %li= link_to "Фотографии: #{@profile.user.place_photos.count}", @profile.id.to_s+'/photos'

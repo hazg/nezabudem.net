@@ -1,0 +1,8 @@
+= simple_form_for(@place, :html => {:class => 'well form-horizontal'}) do |f|
+  = f.error_notification
+  = render :partial => 'places/position_select'
+  .form-inputs
+    = render :partial => 'places/form_inputs', :locals => {:f => f}
+    -#= f.input :soldiers, :as => :text
+  .form-actions
+    = f.button :submit, :class => 'btn-danger'

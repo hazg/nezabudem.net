@@ -1,0 +1,23 @@
+%h1 Listing soldiers
+
+%table
+  %tr
+    %th Name1
+    %th Name2
+    %th Name3
+    %th
+    %th
+    %th
+
+  - @soldiers.each do |soldier|
+    %tr
+      %td= soldier.name1
+      %td= soldier.name2
+      %td= soldier.name3
+      %td= link_to 'Show', soldier
+      %td= link_to 'Edit', edit_soldier_path(soldier)
+      %td= link_to 'Destroy', soldier, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Soldier', new_soldier_path

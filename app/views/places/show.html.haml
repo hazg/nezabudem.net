@@ -1,0 +1,4 @@
+- if @place.photos.first
+  %div.thumbnail 
+    = image_tag(@place.photos.first.photo.url(:thumb))
+= link_to 'Перейти к объекту', @place

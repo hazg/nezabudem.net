@@ -1,0 +1,30 @@
+= simple_form_for([@place, @photo]) do |f|
+  -#:url => '../photos'
+  = f.error_notification
+  
+  -# @need_ocr = need_ocr?
+  
+  .form-inputs
+    = f.input :photo
+    = f.input :title
+    = f.input :description
+    -#%input{:style=>'float:left', :type=>:checkbox, :id => 'need-ocr'}
+    -#%label{:for=>'need-ocr', :style => 'padding-left: 30px'} Есть список ФИО 
+    = f.input :photo_at, :as => :string, :input_html => {:class => "date-picker", :style => 'width: 70px'}
+    = f.input :place_id, :as => :hidden
+    = f.input :user_id, :as => :hidden
+    - if params[:need_ocr]
+      = f.input :need_ocr, :as => :hidden, :input_html => {:value => 1}
+    -#= f.input :tag_list, :label => 'Список тегов(через запятую)'
+    -#= f.input :place_type
+  .form-actions
+    = f.button :submit, :value => 'Загрузить', :class => 'btn btn-danger'
+= javascript_include_tag 'jquery-ui'
+= stylesheet_link_tag 'jquery-ui'
+:coffeescript
+  $ ->
+    $('input.date-picker').each (i) ->
+      $(this).datepicker
+        altFormat: 'yy-mm-dd'
+        dateFormat: 'yy-mm-dd'
+        altField: $(this).next()

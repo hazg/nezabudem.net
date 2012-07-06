@@ -1,0 +1,11 @@
+<%= render :partial => 'application/redactor', :locals => {:id => '#topic_posts_attributes_0_text'} %>
+
+<%= simple_form_for [@forum, @topic] do |f| %>
+  <%= f.input :subject %>
+
+  <%= f.simple_fields_for :posts do |post| %>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
+  <% end %>
+  
+  <%= f.submit %>
+<% end %>

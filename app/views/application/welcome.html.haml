@@ -1,0 +1,68 @@
+= content_for :title do
+  Вторая Мировая Война, мемориалы, обелиски, памятники - не забудем!
+- if can? :create, Obelisk
+  = link_to 'Добавить объект', new_obelisk_path, :class => 'btn btn-large btn-danger'
+- else
+  = link_to 'Добавить объект', '#', :class => 'for-members btn btn-large btn-danger'
+
+- if to_ocr = PlacePhoto.need_ocr.limit(1).first
+  - if can? :create, Soldier
+    = link_to 'Оцифровать фото', polymorphic_path([to_ocr.place, to_ocr]), :class => 'btn btn-large btn-danger'
+  - else
+    = link_to 'Оцифровать фото', '#', :class => 'for-members btn btn-large btn-danger'
+
+%div.row
+  - if not current_user
+    %i{style:'float:right'} Никто не забыт, ничто не забыто…
+    %div{style:'text-align:left;margin:auto;width:90%;margin-top:20px'}
+      
+      %h4 Здравствуйте!
+      %p Вы находитесь на сайте нового некоммерческого проекта НЕЗАБУДЕМ.НЕТ, стартовавшего накануне 67-ой годовщины Победы <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%8E%D0%B7_%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D1%85_%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85_%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA">Союза Советских Социалистических Республик</a> над <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B5%D1%82%D0%B8%D0%B9_%D1%80%D0%B5%D0%B9%D1%85">нацистской Германией.</a>
+      %p Наш проект ставит своей целью создание как можно более полной базы монументов, обелисков, памятников и братских могил Великой Отечественной войны на территории современной России и за ее пределами. 
+      %p Кроме того, мы хотели бы оцифровать списки павших бойцов, которые фактически, а не по документам, значатся на мемориалах. 
+      %p Зачастую, данные военкоматов, архивов и реальные списки погибших, высеченные на мемориалах, не совпадают. Давайте вместе восстановим справедливость. Пусть станет меньше безымянных могил, пусть родственники павших бойцов знают, куда принести цветы, ведь каждый солдат, отдавший жизнь за Родину достоин уважения и почитания!
+      %p Нам нужна Ваша помощь! У многих из нас в шаговой доступности есть памятники Великой Отечественной войны. Пожалуйста, найдите время, выберетесь туда с фотоаппаратом, сфотографируйте мемориал, и памятные плиты с фамилиями, если таковые имеются. Зарегистрируйтесь на нашем сайте, отметьте на карте место мемориала, добавьте фото, внесите перечень фамилий или добавьте фото памятных плит с читаемым изображением.   
+      %p Мы настроены на большую и серьезную работу, проект будет развиваться. Нам очень важно начать!
+      %i{style:'float:right'} С уважением, команда энтузиастов НЕЗАБУДЕМ.НЕТ
+%div.row
+  %div.span11
+    = render :partial => 'base_stats_box'
+    %div#map{:style=>'width:100%;height:400px'}
+%style
+  div.featured-thumbnails li.span3{height:300px;}
+  .css1 { font-size: 1.0em; }
+  .css2 { font-size: 1.2em; }
+  .css3 { font-size: 1.4em; }
+  .css4 { font-size: 1.6em; }
+%div.row.featured-thumbnails
+  %div.span10
+    %ul.thumbnails
+      - @featured.each do |p|
+        = render :partial => 'places/thumb', :locals => {:p => p}
+  %div.span2
+    -#= tag_cloud([], %w(css1 css2 css3 css4)) do |tag, css_class|
+      = link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class
+  -#
+    %div.span2
+      %h5 Последние объекты
+      %ul.nav.nav-list
+        - Place.where('kind <> "node"').order('created_at DESC').limit(10).each do |o|
+          %li= link_to o.name, o
+
+    %div.span6
+    - need_ocr = photos_need_ocr
+    - if need_ocr.size
+      %h5.red Нуждаются в оцифровке
+      %div.span2{:style=>'overflow-y: auto;height:400px'}
+        %ul.thumbnails
+          - need_ocr.each do |x|
+            %li.thumbnail
+              = image_tag(x.photo.icon, :onclick => "window.location='#{place_photo_path(x.place, x)}'", :class => :clickable)
+- content_for :after_footer do
+  = javascript_include_tag "http://api-maps.yandex.ru/2.0/?lang=ru-RU&load=package.full#{"&mode=debug" if Rails.env.development?}"
+  = javascript_include_tag 'places'
+  :coffeescript
+    new window.PlaceMap({show_all:true, zoom:5})
+
+
+
