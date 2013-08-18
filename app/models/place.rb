@@ -1,24 +1,25 @@
 class Place < ActiveRecord::Base
   include ApplicationHelper
-  include ActsAsTaggableOn::TagsHelper
+  acts_as_commentable
+  has_paper_trail
+  #attr_accessor :updating_childrens_count
   
-  #acts_as_taggable
-  #acts_as_taggable_on :tags
+  #after_save :cache_childrens_count, :unless => :updating_childrens_count
+  #after_update :cache_childrens_count, :unless => :updating_childrens_count
 
-  after_save :prepare_tags
-  after_update :prepare_tags
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   
+
   paginates_per 10
-  has_ancestry #:orphan_strategy => :rootify
+  has_ancestry :cache_depth => true #:orphan_strategy => :rootify, 
   
   has_many :photos, :class_name => 'PlacePhoto', :dependent => :destroy
-
+  #attr_accessible :name, :parent_id 
   
   validates :name, :presence => true
   validates :address, :presence => true
-  validates :lat, :presence => true
-  validates :lng, :presence => true
+  validates :lat, :presence => true, :unless => :node?
+  validates :lng, :presence => true, :unless => :node?
   scope :by_bounds, lambda{|x1,y1,x2,y2,options| get_in_bounds(x1, y1, x2, y2, options) }
   scope :without_nodes, where('kind <> "node"')
           
@@ -29,15 +30,20 @@ class Place < ActiveRecord::Base
   scope :need_photos, without_nodes.where(:place_photos_count => false)
 
   def need_ocr?
-    !self.photos.where(:need_ocr => true).limit(1).empty?
+    self.photos.where(:need_ocr => true).any?
   end
 
   def need_photos?
     self.place_photos_count.to_i < 1
   end
-
+  
   def has_places?
-    self.subtree.where('kind <> "node" AND id <> ' + self.id.to_s).size > 0
+    self[:childrens_count] > 0
+  #  if force
+  #    self.subtree.where('kind <> "node" AND id <> ' + self.id.to_s).count > 0
+  #  else
+  #    self[:places_count]
+  #  end
   end
   
   def self.get_in_bounds(x1, y1, x2, y2, options)
@@ -55,27 +61,10 @@ class Place < ActiveRecord::Base
   end
 
   def name
-    (self[:name].blank? or self[:name].nil?) ? self[:address] : self[:name]
+    (self[:name].nil? ? self[:address] : self[:name])
   end
 
   def full_address
     path.map{|x| x.address}.join ', '
   end
-
-  private
-
-  def prepare_tags
-  end
 end
-
-=begin
-class ActiveRecord::Reflection::AssociationReflection
-  def build_association(*options)
-    if options.first.is_a?(Hash) and options.first[:type].presence
-      options.first[:type].to_s.constantize.new(*options)
-    else
-      klass.new(*options)
-    end
-  end
-end
-=end

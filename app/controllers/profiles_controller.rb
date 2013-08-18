@@ -1,7 +1,10 @@
 # @encoding: utf-8
+
+require "csv"
 class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.xml
+  respond_to :html, :json, :csv
   def show
     if not params[:id] and current_user
       @profile = Profile.find(current_user)
@@ -14,7 +17,18 @@ class ProfilesController < ApplicationController
   def index
     add_breadcrumb('Пользователи', nil)
     Profile.paginates_per 20
-    @profiles = Profile.includes([:user => [:avatar]] ).order('created_at DESC').page params[:page]
+    @profiles = Profile.includes([:user, :user => [:avatar]] ).order('created_at DESC')
+    respond_with(@profiles) do |format|
+      format.json{ render }
+      format.html{ 
+        @profiles = @profiles.page params[:page] 
+        render
+      }
+      format.csv do
+        render :csv => @profiles
+      end 
+    end
+#    @profiles = Profile.includes([:user => [:avatar]] ).order('created_at DESC').page params[:page]
   end
 
   def places

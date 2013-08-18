@@ -1,6 +1,10 @@
 %div.navbar
   %div.navbar-inner.navbar-fixed
     %div.container
+      - if not current_user.blank? and current_user.unread_messages? and controller.class != MessagesController
+        %ul.nav.pull-right
+          %li= link_to '<i class="icon-white icon-envelope blink"></i>&nbsp;Новое сообщение'.html_safe, messages_path
+
       %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
         - 3.times do
           %span.icon-bar
@@ -12,6 +16,7 @@
           %li= link_to current_user.email, current_user.profile
         - else
           %li= link_to( "Вход", new_user_session_path )
+
       %ul.nav-pills.pull-left.top-menu
         %ul.nav
           %li
@@ -19,4 +24,4 @@
           %li= link_to 'Обелиски', obelisks_path
           %li= link_to 'Участвуй в проекте!', help_path
           %li= link_to 'Форум', forem.root_path
-
+      -#%span.label.label-important{:style=>'padding: 16px;'}= "На сайте ведутся технические работы."

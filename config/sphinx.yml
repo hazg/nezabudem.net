@@ -1,0 +1,25 @@
+development:
+  bin_path: "/usr/bin"
+  searchd_binary_name: searchd
+  indexer_binary_name: indexer
+  pid_file: "log/searchd.development.pid"
+  morphology: stem_enru
+  enable_star: true
+  expand_keywords: true
+  index_exact_words: true
+  min_infix_len: 3
+  port: 9999
+test:
+  bin_path: "/usr/bin"
+  searchd_binary_name: searchd
+  indexer_binary_name: indexer
+production:
+  bin_path: "/usr/bin"
+  searchd_binary_name: searchd
+  indexer_binary_name: indexer
+  morphology: stem_enru
+  enable_star: true
+  expand_keywords: true
+  index_exact_words: true
+  min_infix_len: 3
+  port: 3399

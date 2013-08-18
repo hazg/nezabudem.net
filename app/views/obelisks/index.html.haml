@@ -1,11 +1,11 @@
 %div.well.row.places-list
-  - Obelisk.roots.order(:name).each do |r|
+  - Obelisk.roots.order('childrens_count DESC').each do |r|
     - if r.has_places?
       %div.span3
         %h1= "#{r.name}"
         - r.children.order(:address).each do |c|
           - if c.has_places? or r.node?
-            %div= link_to c.name, c
+            %div= link_to "#{c.name}", c
       
 = paginate @places
 %ul.thumbnails

@@ -1,0 +1,22 @@
+.page-header
+  %h2
+    Отправлено
+    .pull-right
+      = link_to "Входящие", messages_path, :class => "btn"
+
+- unless @messages.blank?
+  %table.table.table-striped.message-list
+    %thead
+      %tr
+        %th
+        %th Тема
+        %th Кому
+      %tbody
+      - @messages.each do |m|
+        %tr
+          %td= check_box_tag "delete[]", m.id
+          %td= link_to h(m.subject), message_path(m)
+          %td= link_to(m.recipient.nick, m.recipient.profile)
+    = submit_tag "Удалить", :class => "btn btn-danger"
+- else
+  %p нет сообщений.

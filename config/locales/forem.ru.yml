@@ -92,6 +92,7 @@ ru:
         last_post: 'Последняя запись:'
         none: Отсутствует
     topic:
+      received_reply: Прислан ответ
       headings:
         topic: Тема
         latest: Последняя

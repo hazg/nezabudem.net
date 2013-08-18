@@ -1,6 +1,7 @@
 class PlaceMap
   
   constructor: (options) ->
+    
     window.place_map = this
     @can = options['can'] if options['can'] != 'undefined'
 
@@ -39,6 +40,11 @@ class PlaceMap
           iconImageSize: [32, 60]
           iconImageOffset: [-15, -60]
         @map.geoObjects.add(@placemark)
+        # Показываем существующие объекты для предотвращения дубликатов
+        @show_places @map.getBounds(), 0, options =
+          iconImageHref: '/images/landmark-obelisk-trans.png'
+          iconImageSize: [15, 28]
+          iconImageOffset: [-7, -14]
       else
         @show_places @map.getBounds(), 0
 
@@ -101,40 +107,40 @@ class PlaceMap
 
       
   #SHOW WIKIMAPIA OBJECTS
-  show_wikimapia_objects: (b) =>
+  #show_wikimapia_objects: (b) =>
     
-    key = '2DD70717-AB5F7005-A526B076-6280D1B9-7AEC7ABB-4CEA0031-191DB647-B319EDDD'
-    wiki = "http://api.wikimapia.org?key=#{key}&language=ru&format=json"
-    uri_b = "#{wiki}&function=box&count=1000&bbox=#{b[0][1]},#{b[0][0]},#{b[1][1]},#{b[1][0]}"
-    uri_o = "#{wiki}&function=object&id="
-    $.getJSON uri_b, (d) =>
-      @wikimapia_collection.removeAll()
+  #  key = '2DD70717-AB5F7005-A526B076-6280D1B9-7AEC7ABB-4CEA0031-191DB647-B319EDDD'
+  #  wiki = "http://api.wikimapia.org?key=#{key}&language=ru&format=json"
+  #  uri_b = "#{wiki}&function=box&count=1000&bbox=#{b[0][1]},#{b[0][0]},#{b[1][1]},#{b[1][0]}"
+  #  uri_o = "#{wiki}&function=object&id="
+  #  $.getJSON uri_b, (d) =>
+  #    @wikimapia_collection.removeAll()
       
-      for o in d['folder'].reverse()
-        geometry = [(o.polygon.map (xy) -> [xy.y, xy.x]), []]
-        properties =
-          hintContent: o['name']
-          wikimapia_place: o
-        options =
-          interactivityModel: 'default#transparent'
-          fill: true
-          draggable: false
-          strokeColor: '#ff0000'
-          fillColor:   '#6699ff'
-          strokeWidth: 1
-          opacity: 0.2
+  #    for o in d['folder'].reverse()
+  #      geometry = [(o.polygon.map (xy) -> [xy.y, xy.x]), []]
+  #      properties =
+  #        hintContent: o['name']
+  #        wikimapia_place: o
+  #      options =
+  #        interactivityModel: 'default#transparent'
+  #        fill: true
+  #        draggable: false
+  #        strokeColor: '#ff0000'
+  #        fillColor:   '#6699ff'
+  #        strokeWidth: 1
+  #        opacity: 0.2
 
-        if /мемориал|могила|стелла|памятник|захороне|братск[аи]/i.test( o['name'] )
-          options['opacity'] = 0.5
-          options['strokeWidth'] = 3
-          options['fillColor'] = '#990000'
+  #      if /мемориал|могила|стелла|памятник|захороне|братск[аи]/i.test( o['name'] )
+  #        options['opacity'] = 0.5
+  #        options['strokeWidth'] = 3
+  #        options['fillColor'] = '#990000'
 
-        polygon = new ymaps.Polygon geometry, properties, options
+  #      polygon = new ymaps.Polygon geometry, properties, options
          
         #polygon.events.add 'click', (e) =>
         #  @balloon_pos = e.get("coordPosition")
         #  e.stopPropagation()
-        @wikimapia_collection.add(polygon)
+  #      @wikimapia_collection.add(polygon)
 
 
 
@@ -176,20 +182,23 @@ class PlaceMap
 
 
   # SHOW PLACES
-  show_places: (b, outside = 0) =>
+  show_places: (b, outside = 0, options = false) =>
     url = "/places.json?x1=#{b[0][0]}&y1=#{b[0][1]}&x2=#{b[1][0]}&y2=#{b[1][1]}"
     url += '&outside=1' if outside
     $.getJSON url, (data) =>
-      for o in data
+      results = data['results']
+      for o in results
         properties =
           clusterCaption: o['name']
           balloonContentHeader: o['name']
           balloonContentBody: 'Загрузка данных...'
           place: o
-        options =
-          iconImageHref: '/images/landmark-obelisk.png'
-          iconImageSize: [32, 60]
-          iconImageOffset: [-15, -60]
+        if not options
+          options =
+            iconImageHref: '/images/landmark-obelisk.png'
+            iconImageSize: [32, 60]
+            iconImageOffset: [-15, -60]
+
           #hintContent: o['name'],
 
         placemark = new ymaps.Placemark [o['lat'], o['lng']], properties, options
@@ -205,7 +214,7 @@ class PlaceMap
         @clusterer.add(placemark)
       if not outside
         @map.geoObjects.add(@clusterer)
-        @show_places(b, 1)
+        @show_places(b, 1, options)
         
     #console.log "#{b[0][0]} #{b[0][1]} - #{b[1][0]} #{b[1][1]}"
   
@@ -267,9 +276,7 @@ class PlaceMap
       o = objects.geoObjects.get(0)
       meta = o.properties.getAll()
       m = meta.metaDataProperty.GeocoderMetaData
-      
-      
-      if m.kind == 'area' or m.kind == 'province' or m.kind == 'country'
+      if m.kind == 'area' or m.kind == 'province' or m.kind == 'country' or m.kind == 'route' or m.kind == 'hydro'
         @geodecode point, 'locality', fn
       else
         res = o.properties.get('name')
@@ -278,24 +285,62 @@ class PlaceMap
 
   # PREPARE CONTROLS
   prepare_controls: () =>
-
+    search_by_coords =
+    '<h5>Поиск по координате с GPS</h5>
+    <u>Примеры:</u><br />\n
+    <strong>N 58 3.448  E 38 49.794</strong><br />
+    <strong>58°3.448 С  38°49.694 В</strong><br />
+    <i>* Вводить спецсимвол <strong>°</strong> - не обязательно
+    <p>Пожалуйста, соблюдайте формат!</p>
+    '
     $('input.geocoded')
       .wrap('<div class="input-append"></div>')
       .after('<button class="btn decoded-search" type="button"><i class="icon-search"></i></button>').parent()
       .after('<div style="display:none" class="geocode-results"><ul class="nav nav-list geocode-list"></ul><button class="btn" onclick="$(this).parent().hide().find(\'.geocode-list\').html(\'\');return false;">Закрыть</button></div>')
-# 
+      .after('<label data-placement="left" title="'+search_by_coords+'" rel="tooltip" class="checkbox"><input id="search_by_gps" type="checkbox">Поиск по координатам с GPS</label>')
+    $('[rel=tooltip]').tooltip()
+#   
+    $('input#search').keydown (e) =>
+      keycode = event.which if not keycode = event.keyCode
+      if keycode == 13
+        ev = jQuery.Event("click")
+        ev.currentTarget = $('button.btn.decoded-search', $(e.currentTarget).parent())[0]
+        $('button.decoded-search').trigger('click', ev)
+        e.stopPropagation()
+        false
+      
     $('button.decoded-search').click (e) =>
-      parent = $(e.currentTarget).parent()
-      list = parent.parent().find('.geocode-results').show().find('.geocode-list')
-      list.html('')
-      text = parent.find('input.geocoded').attr('value')
-      @geocode text, (t) =>
-        t.each (o) =>
-          a = $("<li><a href='#map'>#{o.properties.get('text')}</a></li>")
-          a.find('a').get(0).geo_data = o
-          list.append(a)
-        $('.geocode-list > li > a').click (e) =>
-          data = $(e.currentTarget).get(0).geo_data
-          @map.setCenter(data.geometry.getCoordinates()).setZoom(12)
+      if $('#search_by_gps').is(':checked')
+        #SEARCH BY COORDS
+        ymaps.geocode($('input.geocoded').val()).then (p) =>
+          #@set_placemark([coords[1], coords[0]])
+          coords = p.geoObjects.get(0).geometry.getCoordinates()
+          @set_placemark(coords)
+          @map.setCenter(coords)
+        #$.ajax
+        #  dataType: 'json',
+        #  data: "q=#{$('input.geocoded').val()}",
+        #  url: "/google_geo.json",
+        #  success: (d) =>
+        #    window.d = d
+        #    coords = d.Placemark[0].Point.coordinates
+        #    @set_placemark([coords[1], coords[0]])
+            
+      else
+        #SEARCH BY ADDRESS
+        parent = $(e.currentTarget).parent()
+        list = parent.parent().find('.geocode-results').show().find('.geocode-list')
+        list.html('')
+        text = parent.find('input.geocoded').attr('value')
+        @geocode text, (t) =>
+          t.each (o) =>
+            a = $("<li><a href='#map'>#{o.properties.get('text')}</a></li>")
+            a.find('a').get(0).geo_data = o
+            list.append(a)
+          $('.geocode-list > li > a').click (e) =>
+            data = $(e.currentTarget).get(0).geo_data
+            @map.setCenter(data.geometry.getCoordinates()).setZoom(12)
+      
 
 window.PlaceMap = PlaceMap
+

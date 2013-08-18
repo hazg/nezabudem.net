@@ -20,6 +20,7 @@ module NezabudemNet
     #ActiveRecord::Base.store_base_sti_class = false
     config.autoload_paths += %W(#{config.root}/lib/mixins/)
     config.autoload_paths += %W(#{config.root}/lib/)
+    config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
     require "#{config.root}/lib/tags.rb"
     #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     # Only load the plugins named here, in the order given (default is alphabetical).

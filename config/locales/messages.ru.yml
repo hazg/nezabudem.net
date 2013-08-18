@@ -1,0 +1,10 @@
+ru: 
+  activerecord:
+    models:
+      message: Личные сообщения
+    attributes:
+      message:
+        subject: Тема
+        body: Текст
+        recipient: Получатель
+        sender: Отправитель

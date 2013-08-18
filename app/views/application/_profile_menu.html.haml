@@ -1,0 +1,15 @@
+- if current_user and @profile == current_user.profile
+  %ul.nav.nav-tabs
+    %li= link_to 'Профиль', profile_path(current_user.profile)
+    %li= link_to 'Личные сообщения', messages_path
+    %li.dropdown
+      %a.dropdown-toggle{'data-toggle' => 'dropdown', :href => '#'} 
+        Ресурсы 
+        %b.caret
+      %ul.dropdown-menu
+
+        %li= link_to 'Объекты', '/profiles/'+current_user.profile.id.to_s+'/places'
+        %li= link_to 'ФИО', '/profiles/'+current_user.profile.id.to_s+'/soldiers'
+        %li= link_to 'Фото', '/profiles/'+current_user.profile.id.to_s+'/photos'
+- elsif current_user
+  = link_to '<i class="icon-envelope"></i>Личное сообщение'.html_safe, new_message_path(@profile.user, {:to=>@profile.user}), {:class => 'btn'}

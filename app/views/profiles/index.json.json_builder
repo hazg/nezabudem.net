@@ -1,0 +1,6 @@
+results @profiles do |p|
+  name p.user.nick
+  ocr p.user.soldiers.count
+  places p.user.places.count
+  photos p.user.place_photos.count
+end

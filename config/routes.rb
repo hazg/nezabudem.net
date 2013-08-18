@@ -1,4 +1,22 @@
 NezabudemNet::Application.routes.draw do
+  mount Forem::Engine, :at => "/forums"
+  
+#  resources :users do
+#    resources :messages do
+#      collection do
+#        post :delete_selected
+#      end
+#    end
+#  end
+  
+  match 'search' => 'search#results'
+
+  resources :messages do
+    collection do
+      post :delete_selected
+    end
+  end
+
   #get "omniauth_callbacks/facebook"
   #get "omniauth_callbacks/vkontakte"
 
@@ -11,7 +29,7 @@ NezabudemNet::Application.routes.draw do
     match 'photos' => 'profiles#photos', :as => :profile_photos
   end
 
-  
+
   match 'profiles/:id' => 'profiles#show', :as => :user_profile
   #match 'profile' => 'profiles#update', :via => :put
 
@@ -22,16 +40,16 @@ NezabudemNet::Application.routes.draw do
   match 'soldiers/add_from_list' => 'soldiers#add_from_list', :as => :soldiers_add_from_list
   match 'soldiers/add_mass_add' => 'soldiers#mass_add', :as => :soldiers_mass_add
   resources :soldiers
-  
-  #:users do
+
+  #resources :users do
   #  get "users/sign_up", :to => "registrations#new", :as => "sign_up"
   #  get "users/sign_in", :to => "devise/sessions#new", :as => "sign_in"
-  #  get "users/sign_out", :to => "devise/sessions#destroy", :as => 'sign_out'
+  #get "users/sign_out", :to => "devise/sessions#destroy", :as => 'sign_out'
   #end
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin' #, :constraints => { :subdomain => 'admin' }
   mount Forem::Engine => '/forum' #, :constraints => { :subdomain => 'forum' } 
   #mount Forem::Engine, :at => "/"
-  
+
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_for :users, :controllers => {
     :registrations => "registrations",
@@ -41,23 +59,32 @@ NezabudemNet::Application.routes.draw do
   #  get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   #end
   #devise_for :users, :controllers => { :omniauth_callbacks => "devise/omniauth_callbacks" }
-  
-  
-  
+
+
+
 
   #Authproviders::Application.routes.draw do
+  mount Forem::Engine, :at => "/forums"
+  resources :messages do
+    collection do
+      post :delete_selected
+    end
+  end
   #  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  #  resources :users, :only => [:index, :destroy]
+  resources :users, :only => [:index, :destroy]
   #  root :to => 'users#index'
   #end
 
   #resources :photos
-  resources :users
+  #resources :users
   resources :user_session
-  resources :place_photos
+  resources :place_photos do
+    resources :comments
+  end
   resources :places, :obelisks do
     resources :place_photos, :as => :photos, :path => :photos #, :only => [:create, :index, :new]
     resources :place_photos
+    resources :comments
   end
 
   #mount Scrib::Engine => "/"
@@ -117,4 +144,7 @@ NezabudemNet::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  #
+  match '/public/:file', :to => redirect('/public/:file')
+  match "/google_geo" => GoogleGeo.action(:index)
 end

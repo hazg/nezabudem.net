@@ -7,4 +7,9 @@ a.btn{color: 333; }
 .btn-inverse:hover { background-color: $btnInverseBackgroundHighlight !important; }
 .btn-warning:hover { background-color: $btnWarningBackgroundHighlight !important; }
 .btn-navbar:hover { background-color: $btnInverseBackgroundHighlight !important; }
+li.dropdown{list-style:none}
 
+.nav-tabs .dropdown-toggle .caret, .nav-pills .dropdown-toggle .caret {
+  border-top-color: #750300;
+  border-bottom-color: #750300;
+}

@@ -3,8 +3,10 @@
   %head
     %meta{:charset => "utf-8"}/
     %title= yield :title
+    :coffeescript
+      window.current_user = #{(current_user.blank? ? 0 : current_user.id)}
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
-    - if user_signed_in? and current_user.admin?
+    -# if user_signed_in? and current_user.admin?
       %script{:src =>'/javascripts/ckeditor/ckeditor.js', :type=>"text/javascript"}
  
     = csrf_meta_tags
@@ -26,6 +28,11 @@
       = render :partial => 'flashes'
       .content
         .row
+          %div.span12
+            %form.form-search{:action => '/search', :method => :get}
+              %input.input-large.search-query{:type => 'text', :name => 'q', :value => params[:q]}
+              %button.btn{:type=>'submit'} Поиск по ФИО
+        
           .span12
             .bordered
               .inner
@@ -35,9 +42,14 @@
             123
 
     
-    = render :partial => 'unregistered' if current_user.nil?
-    = javascript_include_tag "application"
-    
     = yield :after_footer
+    = javascript_include_tag "application"
 
+    - if current_user.nil?
+      = render :partial => 'unregistered' 
+    - else
+      = render :partial => 'registered' 
+
+    = sape_links if current_user.nil?
+    -#= @sape.inspect if current_user.nil?
     = render :partial => 'counters' if Rails.env.production?

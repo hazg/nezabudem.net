@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-
+    can :read, :all
     if user.admin?
       can :manage, :all
     elsif user.role? [:user, :editor]
@@ -15,6 +15,8 @@ class Ability
       can :manage, Profile, :user_id => user.id
       
       can :edit, PlacePhoto if user.role? [:editor]
+      can :edit, Soldier if user.role? [:editor]
+      can :edit, Obelisk if user.role? [:editor]
 
         #s.user_id == user.id if s
         #if s.place_id
@@ -27,7 +29,7 @@ class Ability
       cannot :all, :rails_admin
     end
 
-    can :read, :all
+    
 
     #if user.role? :user
     #  

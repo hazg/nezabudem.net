@@ -1,0 +1,20 @@
+- pc, sc, ppc = Place.count, Soldier.count, PlacePhoto.count
+- sk = sc / (pc + ppc) # koof = (Soldiers / (Places + Photos))
+- sel = "*, ((soldiers_count / #{sk}) + places_count + place_photos_count) AS ratio"
+  
+
+%table
+  - User.includes([:avatar, :profile]).select(sel).order('ratio DESC').limit(count).each do |u|
+    %tr
+      %td{:colspan=>2}= link_to(u.nick, u.profile)
+    %tr
+      %td.thumb= image_tag(u.avatar.photo.url(:icon))
+      %td.stats
+        %div= "Мест #{u.places_count}"
+        %div= "ФИО #{u.soldiers_count}"
+        %div= "Фото #{u.place_photos_count}"
+
+%style
+  td.thumb{text-align:center}
+  td.stats{font-size:10px}
+

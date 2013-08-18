@@ -3,6 +3,14 @@
   = render :partial => 'places/position_select'
   .form-inputs
     = render :partial => 'places/form_inputs', :locals => {:f => f}
-    -#= f.input :soldiers, :as => :text
+    %div.control-group.string.required
+      %label.string.required.control-label Фактическое место захоронения?
+      %div.controls
+        %div.btn-group.form-radio{'data-toggle'=>'buttons-radio', :rel => '#obelisk_bural_place'}
+          %button.btn{:type=>'button', :value => ''} Не указано
+          %button.btn{:type=>'button', :value => 0} Нет
+          %button.btn{:type=>'button', :value => 1} Да
+    = f.input :bural_place, :as => :hidden
   .form-actions
     = f.button :submit, :class => 'btn-danger'
+= to_redactor('#obelisk_description')

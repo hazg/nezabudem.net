@@ -1,5 +1,7 @@
 # @encoding: utf-8
 class ObelisksController < ApplicationController
+  
+
   load_and_authorize_resource :place
   include PlacesHelper
   add_breadcrumb "Обелиски", :obelisks_path
@@ -39,6 +41,8 @@ class ObelisksController < ApplicationController
   # POST /places
   # POST /places.xml
   def create
+  #  expire_action :action => [:index, :show]
+
     @place = Obelisk.new(params[:obelisk])
     #process_soldiers
     @place.user = current_user
@@ -50,6 +54,7 @@ class ObelisksController < ApplicationController
   # PUT /places/1
   # PUT /places/1.xml
   def update
+  #  expire_action :action => [:index, :show]
     @place = Obelisk.find(params[:id])
     #process_soldiers
     @place.update_attributes(params[:obelisk])
@@ -59,6 +64,7 @@ class ObelisksController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.xml
   def destroy
+  #  expire_action :action => [:index, :show]
     @place = Obelisk.find(params[:id])
     @place.destroy
     respond_with(@place)

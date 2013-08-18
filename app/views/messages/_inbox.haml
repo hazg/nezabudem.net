@@ -1,0 +1,25 @@
+- unless @messages.blank?
+  %table.table.table-striped.message-list
+    %thead
+      %tr
+        %th 
+        %th Тема
+        %th Собеседник
+        %th Создано
+        %th Сообщений
+    %tbody
+      - @messages.each do |m|
+        %tr
+          %td= check_box_tag "delete[]", m.id
+          %td
+            - if m.thread_read?(current_user)
+              = link_to h(m.subject), message_path(m)
+            - else
+              = link_to h(m.subject), message_path(m), :class => :unread
+          %td= user_link ((m.sender.id == current_user.id) ? m.recipient : m.sender)
+          %td= m.created_at.to_s( :date )
+          %td= m.thread_messages.count( :id )
+  = submit_tag "Удалить", :class => "btn btn-danger"
+
+- else
+  %p Нет сообщений.

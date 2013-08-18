@@ -1,8 +1,10 @@
 # RailsAdmin config file. Generated on April 13, 2012 17:24
 # See github.com/sferik/rails_admin for more informations
 
-RailsAdmin.config do |config|
 
+RailsAdmin.config do |config|
+#  config.audit_with :paper_trail, Place
+#  config.audit_with :paper_trail, Soldier
   config.authorize_with :cancan
 
   #  config.model Obelisk do
@@ -99,7 +101,15 @@ RailsAdmin.config do |config|
   #  end
     
   #end
-
+  config.model Place do 
+    include_all_fields
+    field :parent_id, :enum do 
+      enum do 
+        except = bindings[:object].id 
+        Place.where("id != ?", except).map { |c| [ c.name, c.id ] } 
+      end 
+    end 
+  end
   config.model User do
 
     # Found associations:

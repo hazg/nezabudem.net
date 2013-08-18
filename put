@@ -2,6 +2,9 @@
 
 rsync \
 	-rvv \
+  --exclude='db/sphinx/development/' \
+  --exclude='config/environments/production.rb' \
+  --exclude='sphinx.yml' \
 	--exclude='*.bz2' \
 	--exclude='.' \
 	--exclude='*.zip' \
@@ -21,4 +24,4 @@ rsync \
   --exclude="*.lock" \
 	--exclude="config/robots.txt" \
 	/home/ss/www/nezabudem.net/ \
-	webmaster@hazg.net:/var/www/webmaster/data/www_rails3/nezabudem.net/;
+	www-data@hazg.net:/var/www/webmaster/data/www_rails3/nezabudem.net/;

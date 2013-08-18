@@ -1,8 +1,8 @@
-= stylesheet_link_tag asset_path('redactor.css')
-
 :coffeescript
-  $(window).ready ()->
+  window.redactor_path = "http://#{request.host}/assets/redactor"
+  window.redactor_css = "#{asset_path('redactor/style.css').match(/\/([^\/]*)\z/)[1..-1][0]}"
+  $(window).load ()->
     $("#{id}").redactor
       lang: 'ru'
-      path: "http://#{request.host}/assets/redactor"
-      css: "#{asset_path('redactor/style.css').match(/\/([^\/]*)\z/)[1..-1][0]}"
+      path: window.redactor_path
+      css: window.redactor_css

@@ -1,8 +1,12 @@
-= f.input :address, :input_html => {:value => @place.full_address, :class => 'geocoded'}
+%div.control-group.string.required
+  %label.string.required.control-label{:for => :search} Поиск на карте
+  %div.controls
+    %input{:id=> "search", :class => 'geocoded'}
+= f.input :address, :input_html => {:onfocus=>'$(this).blur();', :value => @place.full_address, :rows => 2, :style => 'height: auto; cursor: default; background-color: #ddd'}, :as => :text
 = f.input :name
 = f.input :description
-= f.input :lat
-= f.input :lng
+= f.input :lat, :as => :hidden
+= f.input :lng, :as => :hidden
 = f.input :kind, :as => :hidden
 = f.input :zoom, :as => :hidden
 = f.input :status, :as => :hidden  

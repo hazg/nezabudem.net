@@ -1,4 +1,4 @@
 class Notifier < ActionMailer::Base
-  default from: "no-reply@nezabudem.net"
+  default from: "info@nezabudem.net"
 
 end

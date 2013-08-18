@@ -1,0 +1,5 @@
+%h2 Здраствуйте!
+%p У Вас новое личное сообщение на сайте Nezabudem.net
+%h3= @message.subject if not @message.subject.blank?
+%div= @message.body
+= link_to 'Перейти к сообщению', message_path(@message, :only_path => false)

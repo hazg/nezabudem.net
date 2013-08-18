@@ -46,7 +46,7 @@ NezabudemNet::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( redactor.css places.js places.css unregistered.js jquery-ui.js jquery-ui.css )
+  config.assets.precompile += %w( jquery/zoomy.js jquery/zoomy.css redactor.css places.js places.css unregistered.js jquery-ui.js jquery-ui.css )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -66,6 +66,9 @@ NezabudemNet::Application.configure do
   #   :location => '/usr/sbin/sendmail',
   #   :arguments => '-i -t'
   # }
+  config.action_mailer.default_url_options = {
+    :host => 'nezabudem.net'
+  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {:host => 'nezabudem.net'}

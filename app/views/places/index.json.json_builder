@@ -1,0 +1,6 @@
+results @places do |p|
+  id p.id
+  lat p.lat
+  lng p.lng
+  name p.name
+end

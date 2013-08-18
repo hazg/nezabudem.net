@@ -9,16 +9,16 @@
     %th Фотографий
 
   - @profiles.each do |profile|
-    %tr.clickable
+    %tr
       %td= image_tag( profile.user.avatar.photo.icon )
       %td= link_to( profile.user.nick, profile )
-      %td= profile.user.soldiers.count
-      %td= profile.user.places.count
-      %td= profile.user.place_photos.count
+      %td= profile.user.soldiers_count
+      %td= profile.user.places_count
+      %td= profile.user.place_photos_count
 
 = paginate @profiles
 
 :coffeescript
-  $('tr.clickable').each ()->
+  $('table.table.profiles td').each ()->
     $(this).click ()->
       window.location = $('a', this).attr('href')

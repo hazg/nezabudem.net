@@ -1,0 +1,6 @@
+%li.span2{:class => klass}
+  %div.thumbnail
+    %a.thumbnail{:href => polymorphic_path([photo.place, photo])}
+      = image_tag photo.photo.thumb
+    - if photo.need_ocr?
+      %span.label.label-important= 'нужно оцифровать'

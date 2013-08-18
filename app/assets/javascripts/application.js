@@ -11,13 +11,23 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+//= require utils
 //= require bootstrap
-//= require jquery-ui.min
+//= require form-radio
 //= require layout
 //= require places
-jQuery(function($){
+//= require tabs
+//= require jquery/blink
+//= require jquery-ui.min
+//= require jquery/FitText
+//= require redactor-min
+//= require redactor-ru
+
+jQuery(window).load(function(){
+  
   
   $('.dropdown-toggle').dropdown();
+  $('button.btn').button();
 
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',

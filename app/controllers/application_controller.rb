@@ -3,6 +3,15 @@ require "application_responder"
 
 
 class ApplicationController < ActionController::Base
+  #before_filter :sape_init
+
+
+  # @return [Object]
+  def forem_user
+    current_user
+  end
+  helper_method :forem_user
+
   include ApplicationHelper
   
 
@@ -48,6 +57,7 @@ class ApplicationController < ActionController::Base
 
   def welcome
     @featured = (Place.need_ocr | Place.need_photos)
+    
     @new = Place.without_nodes.order('created_at DESC').limit(10)
     @featured = (@new | @featured).uniq
   end
@@ -59,5 +69,9 @@ class ApplicationController < ActionController::Base
   #def after_sign_up_path_for(resource)
   #  '/profile'
   #end
+  private
 
+  #def sape_init
+  #  @sape = Sape.from_request('01823de4821c66985a3bfdfe921ee433', request)
+  #end
 end

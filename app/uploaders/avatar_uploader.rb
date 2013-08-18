@@ -19,17 +19,22 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
+  process :resize_to_fit => [640, 480]
+  process :quality => 70
 
   version :forum do
     process :resize_to_fit => [50, 50]
+    process :quality => 70
   end
 
   version :icon do
     process :resize_to_fit => [66, 50]
+    process :quality => 70
   end
 
   version :thumb do
     process :resize_to_fit => [200, 150]
+    process :quality => 70
   end
 
 

@@ -1,0 +1,8 @@
+- if not (result.place.blank? and result.soldirable.blank?)
+  %pre
+    %table
+      %tr
+        %td
+          %div.span8= link_to(result.fio, result, :style=>'font-size:110%;')
+        %td= link_to(image_tag(result.soldirable.photo.url(:icon)), polymorphic_path(result.soldirable))
+        %td= link_to(result.place.name, result.place)

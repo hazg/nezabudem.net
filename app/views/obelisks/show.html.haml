@@ -18,7 +18,7 @@
   %h1= @place.title
   - content_for :title do
     = @place.name
-  = display_autor
+  = user_link_with_avatar @place.user
   %h2.address= @place.name
   
   - if can? :add_photo, @place
@@ -38,7 +38,12 @@
               С поименным списком
   = render :partial => 'places/gallery'
 
-
+  - if not @place.bural_place.nil?
+    - if @place.bural_place
+      %p Памятник с захоронением
+    - else
+      %p Памятник без захоронения
+      
   - if @place.description?
     %h3 Описание
     = simple_format(@place.description)
@@ -52,6 +57,10 @@
                 = link_to s.fio, soldier_path(s)
 
   = render :partial => 'places/position_show'  
+
+  = show_comments(@place)
+
+
   - if can? :delete, @place
     = link_to 'Удалить', obelisk_path(@place), :method => :delete, :confirm => 'Удалить?'
   - if can? :edit, @place
@@ -60,6 +69,4 @@
     = link_to 'Добавить объект', new_obelisk_path, :class => 'btn btn-large btn-danger'
   - else
     = link_to 'Добавить объект', '#', :class => 'for-members btn btn-large btn-danger'
-:coffeescript
-  #$(window.document).ready () ->
   

@@ -37,7 +37,7 @@
     = javascript_include_tag "application"
     = javascript_include_tag "forum-custom"
     = render :partial => 'unregistered' if current_user.nil?
-    
+    = render :partial => 'redactor', :locals => {:id => '#post_text, #topic_posts_attributes_0_text' }    
     -#= javascript_include_tag "forem"
     
     = yield :after_footer

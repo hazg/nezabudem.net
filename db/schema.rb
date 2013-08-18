@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930141389) do
+ActiveRecord::Schema.define(:version => 20130111085545) do
 
   create_table "avatars", :force => true do |t|
     t.string   "photo"
@@ -38,18 +38,41 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id",   :default => 0
+    t.string   "commentable_type", :default => ""
+    t.string   "title",            :default => ""
+    t.text     "body"
+    t.string   "subject",          :default => ""
+    t.integer  "user_id",          :default => 0,  :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
 
+  add_index "forem_categories", ["slug"], :name => "index_forem_categories_on_slug", :unique => true
+
   create_table "forem_forums", :force => true do |t|
-    t.string  "title"
+    t.string  "name"
     t.text    "description"
     t.integer "category_id"
     t.integer "views_count", :default => 0
+    t.string  "slug"
   end
+
+  add_index "forem_forums", ["slug"], :name => "index_forem_forums_on_slug", :unique => true
 
   create_table "forem_groups", :force => true do |t|
     t.string "name"
@@ -104,9 +127,11 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
     t.datetime "last_post_at"
     t.string   "state",        :default => "pending_review"
     t.integer  "views_count",  :default => 0
+    t.string   "slug"
   end
 
   add_index "forem_topics", ["forum_id"], :name => "index_forem_topics_on_forum_id"
+  add_index "forem_topics", ["slug"], :name => "index_forem_topics_on_slug", :unique => true
   add_index "forem_topics", ["state"], :name => "index_forem_topics_on_state"
   add_index "forem_topics", ["user_id"], :name => "index_forem_topics_on_user_id"
 
@@ -124,6 +149,21 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
   add_index "forem_views", ["updated_at"], :name => "index_forem_views_on_updated_at"
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
   add_index "forem_views", ["viewable_id"], :name => "index_forem_views_on_topic_id"
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "thread"
+  end
+
+  add_index "messages", ["thread"], :name => "index_messages_on_thread"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -145,11 +185,12 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
     t.text     "description"
     t.string   "photo"
     t.integer  "place_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.date     "photo_at"
     t.integer  "user_id"
-    t.boolean  "need_ocr",    :default => false
+    t.boolean  "need_ocr",       :default => false
+    t.integer  "soldiers_count", :default => 0
   end
 
   add_index "place_photos", ["need_ocr"], :name => "index_place_photos_on_need_ocr"
@@ -168,23 +209,26 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
     t.boolean  "is_around"
     t.string   "kind"
     t.integer  "zoom"
-    t.string   "slug"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "ancestry"
     t.integer  "user_id"
     t.integer  "place_photos_count"
     t.integer  "soldiers_count"
+    t.string   "address_path"
+    t.integer  "childrens_count",    :default => 0
+    t.integer  "ancestry_depth",     :default => 0
+    t.boolean  "bural_place"
   end
 
   add_index "places", ["address"], :name => "index_places_on_address"
+  add_index "places", ["address_path"], :name => "index_places_on_address_path"
   add_index "places", ["ancestry"], :name => "index_places_on_ancestry"
   add_index "places", ["kind"], :name => "index_places_on_kind"
   add_index "places", ["lat"], :name => "index_places_on_lat"
   add_index "places", ["lng"], :name => "index_places_on_lng"
   add_index "places", ["name"], :name => "index_places_on_name"
   add_index "places", ["place_photos_count"], :name => "index_places_on_place_photos_count"
-  add_index "places", ["slug"], :name => "index_places_on_slug", :unique => true
   add_index "places", ["soldiers_count"], :name => "index_places_on_soldiers_count"
   add_index "places", ["type"], :name => "index_places_on_type"
   add_index "places", ["user_id"], :name => "index_places_on_user_id"
@@ -273,6 +317,10 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
     t.boolean  "forem_auto_subscribe",   :default => false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "soldiers_count",         :default => 0
+    t.integer  "place_photos_count",     :default => 0
+    t.integer  "places_count",           :default => 0
+    t.integer  "comments_count",         :default => 0
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
@@ -280,5 +328,16 @@ ActiveRecord::Schema.define(:version => 20120930141389) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",  :null => false
+    t.integer  "item_id",    :null => false
+    t.string   "event",      :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

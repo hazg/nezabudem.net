@@ -2,12 +2,17 @@ ru:
   activerecord:
     models:
       user: Пользователь
+      role: Роль
     attributes:
       user:
         password: "Пароль"
         remember_me: "запомнить меня"
         email: "Почта"
         password_confirmation: "Подтверждение пароля"
+      role:
+        name: Название
+        title: Заголовок
+        users: Пользователи
   devise: 
     confirmations: 
       confirmed: "Ваш аккаунт подтверждён. Добро пожаловать."

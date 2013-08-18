@@ -1,16 +1,15 @@
-%li.span3
-  %div.thumbnail{:style=>'min-height:200px'}
-    %h5= link_to p.name, p
-    - if not p.photos.empty?
-      = image_tag( p.photos.first.photo.thumb, :class => 'clickable', :onclick => "window.location = '#{url_for(p)}'")
-    - else
-      = image_tag( 'need_photos.png', :class => 'clickable', :onclick => "window.location = '#{url_for(p)}'")
-    %p
-      - if p.need_ocr?
-        %span.label.label-important= 'Нужно оцифровать'
-      - if p.need_photos?
-        %span.label.label-important= 'Нужно съездить'
-      - if @new and @new.include?( p )
-        %span.label= _('new')
-
-  
+- if not p.nil?
+  %li.span3
+    %div.thumbnail{:style=>'min-height:200px'}
+      %h5= link_to p.name, p
+      - if p.place_photos_count.to_i > 0 and p.photos.first
+        = image_tag( p.photos.first.photo.thumb, :class => 'clickable', :onclick => "window.location = '#{url_for(p)}'")
+      - else
+        = image_tag( 'need_photos.png', :class => 'clickable', :onclick => "window.location = '#{url_for(p)}'")
+      %p
+        - if p.need_ocr?
+          %span.label.label-important= 'Нужно оцифровать'
+        - if p.need_photos?
+          %span.label.label-important= 'Нужно съездить'
+        - if @new and @new.include?( p )
+          %span.label= _('new') 

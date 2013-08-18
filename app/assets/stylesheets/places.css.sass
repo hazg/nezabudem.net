@@ -1,3 +1,4 @@
+@import 'compass'
 // Place all the styles related to the places controller here.
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
@@ -7,3 +8,11 @@
 #map
   margin-top: 10px
   margin-bottom: 10px
+ul.place_gallery.thumbnails
+  li.active
+    +border-radius(5px)
+    +box-shadow(#ccc)
+    border: 2px solid #600
+li.span3 > div.thumbnail > h5
+  white-space: nowrap
+  overflow-x: hidden

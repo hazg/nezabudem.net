@@ -6,6 +6,7 @@
   %h3= @soldier.fio
   %ul.thumbnails
     %li.thumbnail
-      = image_tag(@soldier.soldirable.photo)
+      = image_tag(@soldier.soldirable.photo) if not @soldier.soldirable.blank? and not @soldier.soldirable.photo.blank?
 - if can? :edit, @soldier
   = link_to 'Редактировать', edit_soldier_path(@soldier), :class => 'btn btn-danger'
+  = link_to 'Удалить', soldier_path(@soldier), :method => :delete, :confirm => 'Удалить?', :class => 'btn btn-danger'

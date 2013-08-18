@@ -1,0 +1,7 @@
+%dl
+  - tree.each do |c|
+    %div.avatar= image_tag(c.user.avatar.photo.icon)
+    %dt= link_to(c.user.nick, c.user.profile, :name=>"c#{c.id}")
+    %dd= comment_format(c.body)
+    %a.small.reply{:href=>"#", :rel => c.id} Ответить
+    = render :partial => 'comments/subtree', :locals => {:tree => c.children}

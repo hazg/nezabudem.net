@@ -2,7 +2,6 @@
 #=require redactor-ru
 b1 = $('ul.breadcrumb')
 b2 = $('h2:first').hide()
-
 $('a', b2).each () ->
   $(this).wrap('<li>').after($('<span class="divider">/</div>'))
   b1.append($('li', b2))

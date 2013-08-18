@@ -1,7 +1,7 @@
 class SoldiersController < ApplicationController
   include PlacesHelper
   before_filter :before
-
+  respond_to :html, :csv
   def before
     if params[:id]
       

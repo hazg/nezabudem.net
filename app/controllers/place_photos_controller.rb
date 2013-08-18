@@ -4,6 +4,7 @@ class PlacePhotosController < ApplicationController
   
   #add_breadcrumb @photo.place.name, obelisks_path(@photo.place) 
   before_filter :place
+
   # GET /photos
   # GET /photos.xml
   def index
@@ -38,7 +39,6 @@ class PlacePhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
-    tags = []
     @photo = PlacePhoto.new(params[:place_photo])
     @photo.user = current_user
     @photo.save
@@ -49,10 +49,6 @@ class PlacePhotosController < ApplicationController
   # PUT /photos/1.xml
   def update
     @photo = PlacePhoto.find(params[:id])
-    if params['remove_tags']
-        @photo.tag_list.remove( params['remove_tags'].split(/,\s/) )
-    end
-      
     
     @photo.update_attributes(params[:place_photo])
     respond_with(@photo, :location => polymorphic_url(@place))
@@ -63,12 +59,11 @@ class PlacePhotosController < ApplicationController
   def destroy
     @photo = PlacePhoto.find(params[:id])
     @photo.destroy
-    respond_with(@photo)
+    respond_with(@photo.place)
   end
 
 
   private
-
 
     def place
       params.each do |name, value|  

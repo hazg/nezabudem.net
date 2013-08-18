@@ -1,18 +1,26 @@
 %p#notice= notice
+%ul.place_gallery.thumbnails
+  - if (around = @photo.around(2)).count > 1
+    - around.each do |p|
+      = photo_thumb(p)
+
 
 = link_to '<i class="icon-chevron-left"></i>Вернуться к объекту'.html_safe, polymorphic_path(@photo.place), :class => 'btn' 
 
 - if can? :edit, @photo
   = link_to 'Изменить', "#{@photo.id}/edit", :class => 'btn btn-danger'
+  = link_to 'Удалить', "#{@photo.id}", :method => :delete, :confirm => 'Удалить?'
 %div.row
   %div.thumbnail{:class => ((@photo.need_ocr or @photo.soldiers.count) ? 'span7' : '')}
     - if @photo.title
       %h5= @photo.title
-    = link_to "автор: #{@photo.user.nick}", profile_path(@photo.user.profile)
+    = user_link_with_avatar @photo.user
     - if @photo.photo_at
       %div= "Дата съемки: #{@photo.photo_at}"
-    -#%a{:href => @photo.photo.url, :style => 'margin: auto;display: block; text-align: center'}
-    = image_tag @photo.photo.url(:normal)
+    
+    -#%div#signature{:style=>"width: 300px;height: 300px; border: 1px solid red"}
+    %a{:href => @photo.photo.url, :style => 'margin: auto;display: block; text-align: center', :id=>'zoom', :target => '_blank'}
+      = image_tag @photo.photo.url(:normal), :id => 'signatured'
     %p
       = link_to 'Изображение целиком (в новом окне)', @photo.photo.url, :target => '_blank'
     - if @photo.description
@@ -28,17 +36,33 @@
   - if @photo.need_ocr
     %div.span4
       %div.well
-        %h5 Список ФИО (в новой строке)
-        = simple_form_for :soldiers, :url => soldiers_add_from_list_path do |f|
-          %textarea#soldiers_list{:name => :'soldiers[list]', :style=>'width: 100%;height: 350px'}
-          = f.input :soldirable_type, :input_html => {:value => @photo.class.name}, :as => :hidden
-          = f.input :soldirable_id, :input_html => {:value => @photo.id}, :as => :hidden
-          = f.input :place_id, :input_html => {:value => @photo.place.id}, :as => :hidden
-          = f.submit :value => 'Добавить', :class => 'btn btn-danger'
-
+        - if can? :create, Soldier    
+          %h5 Список ФИО (в новой строке)
+          = simple_form_for :soldiers, :url => soldiers_add_from_list_path do |f|
+            %textarea#soldiers_list{:name => :'soldiers[list]', :style=>'width: 100%;height: 350px'}
+            = f.input :soldirable_type, :input_html => {:value => @photo.class.name}, :as => :hidden
+            = f.input :soldirable_id, :input_html => {:value => @photo.id}, :as => :hidden
+            = f.input :place_id, :input_html => {:value => @photo.place.id}, :as => :hidden
+            = f.submit :value => 'Добавить', :class => 'btn btn-danger'
+          :coffeescript
+            $(document).ready ()->
+              $('form.simple_form.soldiers').submit ()->
+                if $('textarea#soldiers_list').val().length < 1
+                  alert('Список пуст')
+                  false
+                else
+                  $(window).unbind 'beforeunload'
+              $('textarea#soldiers_list').change ()->
+                if $(this).val().length > 0
+                  $(window).bind 'beforeunload', ()->
+                    'Есть список ФИО, при выходе он не будет сохранен!'
+                else
+                  $(window).unbind 'beforeunload'
+        - else
+          Оцифровка доступна после регистрации
   
   
-  -if @photo.soldiers.count
+  -if @photo.soldiers.any?
     %div.span4
       %h5 Оцифрованные фамилии
       %ul.nav.nav-list
@@ -60,3 +84,16 @@
           = simple_form_for [@place, @photo] do |f|
             %input{:name => :remove_tags, :value => I18n.t('tags.need_ocr'), :type=>:hidden}
             = f.submit :value => 'Все фамилии оцифрованны!', :class=>'btn btn-success btn-large'
+= show_comments(@photo)
+- if @photo.need_ocr
+  = javascript_include_tag 'jquery/jSignature'
+  = javascript_include_tag 'jquery/zoomy'
+  = javascript_include_tag 'pixastic'
+  = stylesheet_link_tag 'jquery/zoomy'
+  
+  :coffeescript
+    
+    $('#zoom').zoomy 'mouseover', {round: false, glare: false, width:'70%', height:"100px"}
+    #TODO: Фильтры
+    #$(window).ready () ->
+    #  $('div.zoom-obj-0').pixastic("edges2")

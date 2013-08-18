@@ -1,0 +1,3 @@
+- @results.each do |r|
+  
+    = render :partial => "#{r.class.name.downcase.pluralize}/search_result", :locals => {:result => r}

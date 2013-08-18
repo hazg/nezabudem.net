@@ -1,5 +1,7 @@
 ru:
   help: Участвуй в проекте!
+  place_photo:
+    without_title: "%{place_name}, Фото № %{photo_id}"
   tags:
     new: новое
     no_photos: нет фото
@@ -23,6 +25,8 @@ ru:
       valid_hint: "Можно использовать только буквы, цифры и -_(),. <br /> минимальная длинна - 3 символа."
   activerecord:
     models:
+      comment: Комментарий
+      place: Место
       obelisk: Обелиск
       place_photo: Фотография
       user: Пользователь
@@ -51,4 +55,12 @@ ru:
         photo: "Файл"
         photo_at: "Дата съемки"
       soldier:
-        fio: ФИО
+        fio: "ФИО"
+      comment:
+        сommentable: "Комментируемое"
+        body: "Текст"
+        title: "Заголовок"
+        subject: "Тема"
+        user: "Пользователь"
+        parent: "Родитель"
+        children: "Дети"

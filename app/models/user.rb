@@ -1,21 +1,34 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and 
-  #
   before_create :build_defaults
-  #
+  
+  def messages
+    Message
+      .where("(sender_id = #{id} AND sender_deleted < 1) OR (recipient_id = #{id} AND recipient_deleted < 1)")
+      .order("created_at DESC")
+
+  end
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable
+
   has_and_belongs_to_many :roles
   has_one :avatar, :dependent => :destroy
   has_one :profile, :dependent => :destroy
+  has_many :places
+  has_many :soldiers
+  has_many :place_photos
+  has_many :comments
+  has_private_messages
+
+
+  validates_uniqueness_of :nick
   validates :nick, :format => { :with => /[\w\W\d()\-_.]{3,}+/, 
     :maximum => 12, :minimum => 3,
     :message => I18n.t('user.nick.valid_hint') }  
   
-  has_many :places
-  #has_many :place_photos
-
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :nick, :roles, :provider, :url
   attr_accessible :provider, :uid#, :nickname 

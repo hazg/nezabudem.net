@@ -1,0 +1,19 @@
+= render :partial => 'profile_menu'
+.page-header
+  %h1
+    = @message.subject
+%p
+  = simple_form_for @reply_message do |f|
+    = f.input :to, :as => :hidden
+    = f.input :thread, :as => :hidden
+    = f.input :body, :label => 'Ответ:'
+
+
+    = f.submit :value => 'Отправить', :class => "btn btn-success"
+  %dl.private-messages-list
+    - @messages.each do |m|
+      %div.avatar= image_tag( m.sender.avatar.photo.icon )
+      %dt= link_to( m.sender.nick,  m.sender.profile )
+      %dd= simple_format(h(m.body))
+      %small= m.created_at.to_s(:date_in_time)
+      %div.clear

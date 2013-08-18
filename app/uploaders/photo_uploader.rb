@@ -29,7 +29,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  process :resize_to_fit => [1400, 1400]
+  process :quality => 75
   #
   # def scale(width, height)
   #   # do something
@@ -37,15 +38,22 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :icon do
-    process :resize_to_fit => [200, 150]
+    process :resize_to_fit => [50, 50]
+    process :quality => 70
+    process :sharpen => '0x1.5'
   end
 
   version :thumb do
     process :resize_to_fit => [200, 150]
+    process :quality => 70
+    process :sharpen => '0x1.5'
   end
-
+  
+  
   version :normal do
     process :resize_to_fit => [800, 600]
+    process :quality => 70
+    process :sharpen => '0x1.5'
     #process :convert_to_grayscale
   end
   def convert_to_grayscale

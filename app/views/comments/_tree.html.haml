@@ -1,0 +1,20 @@
+%div.comments_threads.row
+  %h3 Комментарии
+  - if not target.comment_threads.empty?
+    = render :partial => 'comments/subtree', :locals => {:tree => target.comment_threads.roots}
+
+  - else
+    Комментариев нет
+  - if current_user
+    %div#reply-form-place
+      = simple_form_for([target, target.comment_threads.build_from(target, current_user.id, '')]) do |f|
+        %i.icon-remove
+        = f.input :body, :label => 'Написать комментарий'
+        = f.input :commentable_id, :as => :hidden
+        = f.input :commentable_type, :as => :hidden
+        = f.input :parent_id, :as => :hidden
+        = f.submit :value => 'Отправить', :class => 'btn'
+    
+= to_redactor('#comment_body')
+= javascript_include_tag('comments')
+= stylesheet_link_tag('comments')

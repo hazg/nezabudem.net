@@ -1,3 +1,4 @@
+= render :partial => 'profile_menu'
 - if can? :edit, @profile
   = link_to 'Редактировать профиль', [:edit, @profile]
 %p#notice= notice
@@ -13,10 +14,9 @@
         %div= simple_format(@profile.about)
   %div.span4
     %ul.nav.nav-list
-      - if s = Soldier.where(:user_id => @profile.user_id).count
-        %li
-          = link_to "Оцифрованно имен: <b>#{s}</b>".html_safe, @profile.id.to_s+'/soldiers'
-      - if not @profile.user.places.empty?
-        %li= link_to "Объекты: #{@profile.user.places.count}", @profile.id.to_s+'/places'
-      - if not @profile.user.place_photos.empty?
-        %li= link_to "Фотографии: #{@profile.user.place_photos.count}", @profile.id.to_s+'/photos'
+      - if @profile.user.soldiers_count.to_f > 0
+        %li= link_to "Оцифрованно имен: <b>#{@profile.user.soldiers_count}</b>".html_safe, @profile.id.to_s+'/soldiers'
+      - if @profile.user.places_count.to_f > 0
+        %li= link_to "Объекты: #{@profile.user.places_count}", @profile.id.to_s+'/places'
+      - if not @profile.user.place_photos_count.to_f > 0
+        %li= link_to "Фотографии: #{@profile.user.place_photos_count}", @profile.id.to_s+'/photos'

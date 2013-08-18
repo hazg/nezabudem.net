@@ -1,6 +1,12 @@
 -#= simple_form_for :soldiers
 %h4 Проверьте введенный список
 %div.row
+  - if @photo
+    %div.span6
+      %div.thumbnail
+        %a{:href => @photo.photo.url, :style => 'margin: auto;display: block; text-align: center', :id=>'zoom'}
+          = image_tag(@photo.photo.url(:normal))
+
   %div.span5
     = simple_form_for :soldiers, :url => soldiers_add_from_list_path({:save => true}) do |f|
       = f.input :soldirable_type, :input_html => {:value => @soldirable_type}, :as => :hidden
@@ -31,10 +37,6 @@
         Добавить еще
       = f.submit :value => 'Подтвердить список', :class => 'btn btn-danger'
         
-  - if @photo
-    %div.span6
-      %div.thumbnail
-        = image_tag(@photo.photo)
 = link_to 'Отмена', 'javascript:history.back();', :class => :btn
 %style
   :sass
@@ -68,3 +70,10 @@
     tr.find('div.fio').focus()
     window.update_binds()
     false
+
+- if @photo.need_ocr
+  = javascript_include_tag 'jquery/jSignature'
+  = javascript_include_tag 'jquery/zoomy'
+  = stylesheet_link_tag 'jquery/zoomy'
+  :coffeescript
+    $('#zoom').zoomy 'mouseover', {round: false, glare: false, width:'70%', height:"100px"}

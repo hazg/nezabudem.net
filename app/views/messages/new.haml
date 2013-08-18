@@ -1,0 +1,12 @@
+= render :partial => 'profile_menu'
+.page-header
+  %h3= "Сообщение пользователю #{User.find(@message.to).nick}"
+
+= simple_form_for @message do |f|
+  = f.input :to, :as => :hidden
+  = f.input :thread, :as => :hidden
+  = f.input :subject if not params[:reply_to]
+  = f.input :body
+
+
+  = f.submit :value => 'Отправить', :class => "btn btn-success"

@@ -5,7 +5,7 @@
   - @place.children.order(:address).each do |o|
     - if o.node?
       - if o.subtree.without_nodes.size > 0
-        %div= link_to(o.name, o)
+        %div= link_to("#{o.name}", o)
     - else
       %div= link_to o.name, o
 = paginate @places
