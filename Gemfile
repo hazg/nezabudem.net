@@ -56,7 +56,7 @@ group :development do
   gem 'bullet'
   gem 'debugger'
   gem 'pry-rails'
-  gem 'pry-stack_explorer'
+  #gem 'pry-stack_explorer'
   gem 'pry-debugger'
   gem 'rack-mini-profiler'
   gem 'better_errors'
