@@ -1,0 +1,1 @@
+(function(){var e;window.for_members=e=function(){return $("#registration-frame").load("/users/sign_up",function(){return $("#registration-frame > h2").hide(),$(".registration.modal").modal()})},$(".for-members").click(function(){return e()})}).call(this);

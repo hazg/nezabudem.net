@@ -19,6 +19,8 @@ gem 'mysql2'
 gem 'acts-as-taggable-on'
 gem 'breadcrumbs_on_rails', :git => 'https://github.com/weppos/breadcrumbs_on_rails'
 
+gem 'whenever', :require => false
+
 gem 'ancestry'
 gem 'responders'
 gem 'has_scope'

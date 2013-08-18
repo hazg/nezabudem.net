@@ -1,7 +1,17 @@
+require 'thinking_sphinx/deploy/capistrano'
+
 set :application, "Nezabudem.NET"
 set :repository,  "git@bitbucket.org:hazg/nezabudem.net.git"
+
+set :user,        'webmaster'
+set :host,        'nezabudem.net'
+
+
 set :scm, :git
 
+set :deploy_to, '/var/www/webmaster/data/www_rails3/nezabudem.net'
+set :use_sudo, false
+set :keep_releases, 1
 
 #set :scm, :subversion
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
