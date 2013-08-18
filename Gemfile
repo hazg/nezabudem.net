@@ -42,7 +42,8 @@ gem 'rails_admin' #, :git => 'git://github.com/sferik/rails_admin'
 #gem 'rails_admin_tag_list', :git => 'git://github.com/kryzhovnik/rails_admin_tag_list.git'
 gem 'bootstrap-sass', '2.0.3' #, :git => 'git://github.com/hazg/bootstrap-sass.git', :branch=>'patch-1'
 gem 'coffee-filter'
-gem 'thinking-sphinx', '2.0.10'
+gem 'thinking-sphinx', github: 'pat/thinking-sphinx'
+#gem 'thinking-sphinx', '2.0.10'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -3,7 +3,7 @@ require 'thinking_sphinx/deploy/capistrano'
 set :application, "Nezabudem.NET"
 set :repository,  "git@bitbucket.org:hazg/nezabudem.net.git"
 
-set :user,        'webmaster'
+set :user,        'www-data'
 set :host,        'nezabudem.net'
 
 
@@ -33,7 +33,7 @@ after 'deploy:start', 'deploy:cleanup'
 namespace :deploy do
   desc "Symlinks public/uploads"
   task :symlink_db, :roles => :app do
-    run "ln -ns #{deploy_to}/shared/public/uploads #{release_path}/public/uploads"
+    run "ln -s #{deploy_to}/shared/public/uploads #{release_path}/public/uploads"
   end
 end
 
