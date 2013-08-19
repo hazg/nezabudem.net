@@ -15,7 +15,7 @@ set :keep_releases, 1
 
 #set :scm, :subversion
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-set :domain, 'webmaster@nezabudem.net'
+set :domain, 'www-data@nezabudem.net'
 role :web, domain                          # Your HTTP server, Apache/etc
 role :app, domain                          # This may be the same as your `Web` server
 role :db,  domain, :primary => true # This is where Rails migrations will run

@@ -77,7 +77,7 @@ NezabudemNet::Application.configure do
     :address => 'smtp.yandex.ru',
     :domain => 'info@nezabudem.net',
     :port => 25,
-    #:authentication =>  :login,
+    :authentication =>  :plain,
     :user_name => 'info@nezabudem.net',
     :password => 'rerepz',
     #:authentication       => 'plain',
