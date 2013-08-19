@@ -6,14 +6,14 @@ GIT
 
 GIT
   remote: git://github.com/pat/thinking-sphinx.git
-  revision: f09dff6d4387fb4e0e7c9f2b78543cad431ce097
+  revision: 64da4dc7ffe8701d773961143aecb06a2e75bf86
+  branch: v2
   specs:
-    thinking-sphinx (3.0.4)
-      activerecord (>= 3.1.0)
+    thinking-sphinx (2.1.0)
+      activerecord (>= 3.0.3)
       builder (>= 2.1.2)
-      innertube (>= 1.0.2)
-      middleware (>= 0.1.0)
-      riddle (>= 1.5.7)
+      innertube (~> 1.0)
+      riddle (>= 1.5.6)
 
 GIT
   remote: git://github.com/plataformatec/devise
@@ -217,7 +217,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.1)
-    middleware (0.1.0)
     mime-types (1.21)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
