@@ -39,16 +39,15 @@ class PlacePhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
-    params[:place_photo][:photo].each{|x|
-      ph = PlacePhoto.new( :photo => x )
+
+    photos = params[:place_photo]['photo']
+    params[:place_photo].delete_if{|x| x == 'photo'}
+    photos.each{|x|
+      ph = PlacePhoto.new( params[:place_photo].merge(:photo => x) )
       ph.user = current_user
-      ph.place = @place
       ph.save
       @place.photos << ph
     }
-    #@photo = PlacePhoto.new(params[:place_photo].merge({:place_id => @place.id}))
-    #@photo.user = current_user
-    #@photo.save
     respond_with(@photo, :location => polymorphic_url([@place, @photo]))
   end
 
