@@ -74,14 +74,15 @@ NezabudemNet::Application.configure do
   config.action_mailer.default_url_options = {:host => 'nezabudem.net'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => 'smtp.yandex.ru',
-    :domain => 'info@nezabudem.net',
-    :port => 25,
-    :authentication =>  :plain,
-    :user_name => 'info@nezabudem.net',
-    :password => 'rerepz',
-    #:authentication       => 'plain',
-    :openssl_verify_mode  => 'none'
+    address: 'smtp.yandex.ru',
+    domain: 'info@nezabudem.net',
+    port: 587,
+    enable_starttls_auto:  true
+    authentication: 'login',
+    user_name: 'info@nezabudem.net',
+    password: 'rerepz',
+    #authentication: 'plain',
+    openssl_verify_mode: 'none'
    }
 
   # Log the query plan for queries taking more than this (works

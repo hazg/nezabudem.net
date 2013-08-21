@@ -23,6 +23,7 @@ role :db,  domain, :primary => true # This is where Rails migrations will run
 set :keep_releases, 1
 
 after 'deploy:update_code', 'deploy:symlink_db'
+after 'deploy:deploy:symlink_db', 'symlink_uploads'
 after 'deploy:start', 'deploy:cleanup'
 
 # if you want to clean up old releases on each deploy uncomment this:
@@ -32,8 +33,8 @@ after 'deploy:start', 'deploy:cleanup'
 # these http://github.com/rails/irs_process_scripts
 namespace :deploy do
   desc "Symlinks public/uploads"
-  task :symlink_db, :roles => :app do
-    run "ln -s #{deploy_to}/shared/public/uploads #{release_path}/public/uploads"
+  task :symlink_uploads, :roles => :app do
+    run "ln -s #{deploy_to}/shared/public/uploads #{release_path}/public/"
   end
 end
 
