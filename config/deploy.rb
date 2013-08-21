@@ -11,7 +11,6 @@ set :scm, :git
 
 set :deploy_to, '/var/www/webmaster/data/www_rails3/nezabudem.net'
 set :use_sudo, false
-set :keep_releases, 1
 
 #set :scm, :subversion
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`

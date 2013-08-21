@@ -5,7 +5,7 @@
   -# @need_ocr = need_ocr?
   
   .form-inputs
-    = f.input :photo
+    = f.input :photo, :input_html => {:multiple => 'multiple'}
     = f.input :title
     = f.input :description
     -#%input{:style=>'float:left', :type=>:checkbox, :id => 'need-ocr'}

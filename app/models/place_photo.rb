@@ -10,7 +10,7 @@ class PlacePhoto < ActiveRecord::Base
   scope :need_ocr, where(:need_ocr => true)
   validates :photo, :presence => true
   #:user, :user_id,
-  attr_accessible :need_ocr, :description, :user_id, :title, :photo_at, :place_id, :photo
+  attr_accessible :need_ocr, :description, :user_id, :title, :photo_at, :place_id, :photo, :place
   #accepts_nested_attributes_for :user
   #acts_as_taggable
   #acts_as_taggable_on :tags
@@ -19,6 +19,11 @@ class PlacePhoto < ActiveRecord::Base
   #   super(sType.to_s.classify.constantize.base_class.to_s)
   #end
   #
+  #def initialize(params)
+  #  @place = Place.find(params[:place_id])
+  #  super(params)
+  #end
+
   def name
     if self.attributes[:name].blank?
       I18n.t('place_photo.without_title', :place_name => place.name, :photo_id => id)
