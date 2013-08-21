@@ -77,7 +77,7 @@ NezabudemNet::Application.configure do
     address: 'smtp.yandex.ru',
     domain: 'info@nezabudem.net',
     port: 587,
-    enable_starttls_auto:  true,
+    enable_starttls_auto:  false,
     authentication: 'login',
     user_name: 'info@nezabudem.net',
     password: 'rerepz',
