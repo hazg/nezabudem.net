@@ -27,7 +27,7 @@ jQuery(window).load(function(){
   
   $('.dropdown-toggle').dropdown();
   //$('button.btn').button();
-
+  /*
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',
 		prevText: '&#x3c;Пред',
@@ -46,6 +46,6 @@ jQuery(window).load(function(){
 		isRTL: false,
 		showMonthAfterYear: false,
 		yearSuffix: ''};
-	$.datepicker.setDefaults($.datepicker.regional['ru']);
+	$.datepicker.setDefaults($.datepicker.regional['ru']);*/
 });
 
