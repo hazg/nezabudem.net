@@ -56,7 +56,10 @@
               - soldiers.each do |s|
                 = link_to s.fio, soldier_path(s)
 
-  = render :partial => 'places/position_show'  
+  - if Rails.env != 'development' 
+    = render :partial => 'places/position_show' 
+  -else
+    Hidden in views/obelisks/show.html.haml
 
   = show_comments(@place)
 
