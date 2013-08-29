@@ -1,5 +1,6 @@
 
 <a name='post-<%= post.id %>'></a>
+<hr />
 <div class="row">
   <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> span10'>
       <% if post.pending_review? %>
