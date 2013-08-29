@@ -1,5 +1,3 @@
-#=require redactor-min
-#=require redactor-ru
 b1 = $('ul.breadcrumb')
 b2 = $('h2:first').hide()
 $('a', b2).each () ->

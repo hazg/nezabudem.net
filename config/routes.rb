@@ -78,9 +78,11 @@ NezabudemNet::Application.routes.draw do
   #resources :photos
   #resources :users
   resources :user_session
+  
   resources :place_photos do
     resources :comments
   end
+  
   resources :places, :obelisks do
     resources :place_photos, :as => :photos, :path => :photos #, :only => [:create, :index, :new]
     resources :place_photos

@@ -1,6 +1,6 @@
 %div.navbar
   %div.navbar-inner.navbar-fixed
-    %div.container
+    %div.container{style: 'margin-top: 2px'}
       - if not current_user.blank? and current_user.unread_messages? and controller.class != MessagesController
         %ul.nav.pull-right
           %li= link_to '<i class="icon-white icon-envelope blink"></i>&nbsp;Новое сообщение'.html_safe, messages_path
@@ -16,8 +16,9 @@
           %li= link_to current_user.email, current_user.profile
         - else
           %li= link_to( "Вход", new_user_session_path )
+      -# .pull-left.nav-pills
 
-      %ul.nav-pills.pull-left.top-menu
+      %ul.top-menu
         %ul.nav
           %li
             %a.brand{:href => "/"} Nezabudem.NET

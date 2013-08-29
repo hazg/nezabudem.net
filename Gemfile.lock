@@ -17,45 +17,48 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise
-  revision: 22897150d89a941f9185c749e073a64621bbedf2
+  revision: 213ed8164112bf0b43ebc54607f0463a14b4e7f1
   specs:
-    devise (2.2.3)
+    devise (3.1.0.rc2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (~> 3.1)
-      warden (~> 1.2.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
 
 GIT
-  remote: git://github.com/radar/forem-theme-base.git
-  revision: 3efec35538c33e10081f1fd243d99314f913d2d1
+  remote: git://github.com/radar/forem-bootstrap.git
+  revision: ed6dca40937b5c73e0ab04c912d27313e945362b
   specs:
-    forem-theme-base (0.0.1)
+    forem-bootstrap (0.0.1)
+      bootstrap-sass (~> 2.3.2.1)
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: 9e5969b9c4facb83ab891e8bd0e014b21692875c
+  revision: 515201cd61a56d91d8dfb22400b22723ee4021c2
   specs:
     forem (1.0.0.beta1)
-      cancan (= 1.6.8)
+      cancan (= 1.6.10)
       decorators (~> 1.0.2)
-      forem-redcarpet (= 1.0.0)
       friendly_id (~> 4.0, >= 4.0.9)
       gemoji (= 1.1.2)
+      localeapp
       rails (>= 3.1.10, < 3.3, != 3.2.9, != 3.2.8, != 3.2.7, != 3.2.6, != 3.2.5, != 3.2.4, != 3.2.3, != 3.2.2, != 3.2.10, != 3.2.1, != 3.2.0)
+      select2-rails (= 3.4.3)
       simple_form
       workflow (= 0.8.0)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 7f4975ffc618bc3125039c565507a385c1187183
+  revision: 59a35610459da7368e79179c9d33bc6e4697adb1
   branch: 3-2-stable
   specs:
-    actionmailer (3.2.12)
-      actionpack (= 3.2.12)
-      mail (~> 2.5.3)
-    actionpack (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
+    actionmailer (3.2.14)
+      actionpack (= 3.2.14)
+      mail (~> 2.5.4)
+    actionpack (3.2.14)
+      activemodel (= 3.2.14)
+      activesupport (= 3.2.14)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
@@ -63,35 +66,64 @@ GIT
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
-    activemodel (3.2.12)
-      activesupport (= 3.2.12)
+    activemodel (3.2.14)
+      activesupport (= 3.2.14)
       builder (~> 3.0.0)
-    activerecord (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
+    activerecord (3.2.14)
+      activemodel (= 3.2.14)
+      activesupport (= 3.2.14)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
-    activesupport (3.2.12)
-      i18n (~> 0.6)
+    activeresource (3.2.14)
+      activemodel (= 3.2.14)
+      activesupport (= 3.2.14)
+    activesupport (3.2.14)
+      i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    rails (3.2.12)
-      actionmailer (= 3.2.12)
-      actionpack (= 3.2.12)
-      activerecord (= 3.2.12)
-      activeresource (= 3.2.12)
-      activesupport (= 3.2.12)
+    rails (3.2.14)
+      actionmailer (= 3.2.14)
+      actionpack (= 3.2.14)
+      activerecord (= 3.2.14)
+      activeresource (= 3.2.14)
+      activesupport (= 3.2.14)
       bundler (~> 1.0)
-      railties (= 3.2.12)
-    railties (3.2.12)
-      actionpack (= 3.2.12)
-      activesupport (= 3.2.12)
+      railties (= 3.2.14)
+    railties (3.2.14)
+      actionpack (= 3.2.14)
+      activesupport (= 3.2.14)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: d0af3380182ed7b991a9a23eae3c114b88fe0a14
+  branch: rails-3.x
+  specs:
+    rails_admin (0.4.9)
+      bootstrap-sass (~> 2.2)
+      builder (~> 3.0)
+      coffee-rails (>= 3.1, < 5)
+      font-awesome-rails (~> 3.0)
+      haml (~> 4.0)
+      jquery-rails (>= 2.1, < 4)
+      jquery-ui-rails (>= 3.0, < 5)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.6)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.6)
+      sass-rails (~> 3.1)
+
+GIT
+  remote: git://github.com/tsaiid/jquery-fileupload-rails.git
+  revision: ccc9f107d2681d0455996dbef998c7330d661480
+  specs:
+    jquery-fileupload-rails (0.4.2)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
 
 GIT
   remote: https://github.com/jongilbraith/simple-private-messages.git
@@ -100,58 +132,53 @@ GIT
     simple-private-messages (0.0.0)
 
 GIT
-  remote: https://github.com/norman/friendly_id
-  revision: cb0c987be9cc36fea581ba56b321f8790f0b1c50
-  specs:
-    friendly_id (4.1.0.beta.2)
-
-GIT
   remote: https://github.com/weppos/breadcrumbs_on_rails
-  revision: 6d688dac0869bfd1da0f1290ca80b2badd9d02ed
+  revision: effc15080edd4c1f5e85fa1923097d76a70e259e
   specs:
     breadcrumbs_on_rails (2.3.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    acts-as-taggable-on (2.3.3)
-      rails (~> 3.0)
-    acts_as_commentable_with_threading (1.1.2)
+    acts-as-taggable-on (2.4.1)
+      rails (>= 3, < 5)
+    acts_as_commentable_with_threading (1.1.3)
       activerecord (>= 3.0)
       activesupport (~> 3.0)
       awesome_nested_set (>= 2.0)
-    ancestry (1.3.0)
-      activerecord (>= 2.3.14)
+    ancestry (2.0.0)
+      activerecord (>= 3.0.0)
     arel (3.0.2)
+    atomic (1.1.13)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
     awesome_print (1.1.0)
-    bcrypt-ruby (3.0.1)
-    better_errors (0.6.0)
+    bcrypt-ruby (3.1.2)
+    better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blankslate (3.1.2)
-    bootstrap-sass (2.0.3)
+    bootstrap-sass (2.3.2.2)
+      sass (~> 3.2)
+    bootstrap-wysihtml5-rails (0.3.1.22)
+      railties (>= 3.0)
     builder (3.0.4)
-    cancan (1.6.8)
-    carrierwave (0.8.0)
+    cancan (1.6.10)
+    carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    chronic (0.9.1)
-    chunky_png (1.2.7)
-    coderay (1.0.8)
-    coffee-filter (0.1.2)
-      coffee-script (>= 2.2.0)
-      haml (>= 3.0.18)
+      json (>= 1.7)
+    chronic (0.10.1)
+    chunky_png (1.2.8)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
+    coffee-script-source (1.6.3)
     columnize (0.3.6)
     commonjs (0.2.6)
     compass (0.12.2)
@@ -159,47 +186,44 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     debug_inspector (0.0.2)
-    debugger (1.2.4)
+    debugger (1.6.1)
       columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.1.7)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.1.8)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     decorators (1.0.3)
       railties (>= 3.0.19, != 3.2.9, != 3.2.8, != 3.2.7, != 3.2.6, != 3.2.5, != 3.2.4, != 3.2.3, != 3.2.2, != 3.2.10, != 3.2.1, != 3.2.0, != 3.1.9, != 3.1.8, != 3.1.7, != 3.1.6, != 3.1.5, != 3.1.4, != 3.1.3, != 3.1.2, != 3.1.1, != 3.1.0)
     devise-russian (2.0.1.1)
       devise
     erubis (2.7.0)
-    execjs (1.4.0)
-      multi_json (~> 1.0)
-    ffi (1.0.11)
-    font-awesome-sass-rails (2.0.0.0)
-      railties (>= 3.1.1)
-      sass-rails (>= 3.1.1)
-    forem-redcarpet (1.0.0)
-      pygments.rb (= 0.2.4)
-      redcarpet (= 2.0.1)
+    execjs (2.0.1)
+    font-awesome-rails (3.2.1.3)
+      railties (>= 3.2, < 5.0)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     fssm (0.2.10)
     gemoji (1.1.2)
-    haml (3.1.8)
+    gli (2.7.0)
+    haml (4.0.3)
+      tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
     has_scope (0.5.1)
-    hike (1.2.1)
-    i18n (0.6.1)
+    hike (1.2.3)
+    i18n (0.6.5)
     innertube (1.1.0)
     journey (1.0.4)
-    jquery-rails (2.2.1)
+    jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (2.0.2)
+    jquery-ui-rails (4.0.4)
       jquery-rails
       railties (>= 3.1.0)
-    json (1.7.7)
+    json (1.8.0)
     json_builder (3.1.7)
       activesupport (>= 2.0.0)
       json
@@ -207,43 +231,49 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.8.0)
-    less (2.2.2)
+    less (2.3.2)
       commonjs (~> 0.2.6)
-    less-rails (2.2.6)
+    less-rails (2.3.3)
       actionpack (>= 3.1)
-      less (~> 2.2.0)
+      less (~> 2.3.1)
     libv8 (3.3.10.4)
-    mail (2.5.3)
-      i18n (>= 0.4.0)
+    localeapp (0.6.10)
+      gli
+      i18n
+      json
+      rack
+      rest-client
+      ya2yaml
+    mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
-    mime-types (1.21)
-    mini_magick (3.5.0)
+    method_source (0.8.2)
+    mime-types (1.24)
+    mini_magick (3.6.0)
       subexec (~> 0.2.1)
-    multi_json (1.6.1)
-    mysql2 (0.3.11)
-    nested_form (0.2.3)
-    nokogiri (1.5.6)
+    mini_portile (0.5.1)
+    multi_json (1.7.9)
+    mysql2 (0.3.13)
+    nested_form (0.3.2)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
-    paper_trail (2.7.1)
+    paper_trail (2.7.2)
       activerecord (~> 3.0)
       railties (~> 3.0)
     polyglot (0.3.3)
-    pry (0.9.12)
+    pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry-debugger (0.2.1)
-      debugger (~> 1.2.0)
+    pry-debugger (0.2.2)
+      debugger (~> 1.3)
       pry (~> 0.9.10)
-    pry-rails (0.2.2)
+    pry-rails (0.3.2)
       pry (>= 0.9.10)
-    pry-stack_explorer (0.4.9)
+    pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
-      pry (~> 0.9.11)
-    pygments.rb (0.2.4)
-      rubypython (~> 0.5.3)
+      pry (>= 0.9.11)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -254,70 +284,61 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails_admin (0.1.2)
-      bootstrap-sass (~> 2.0)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      font-awesome-sass-rails (~> 2.0)
-      haml (~> 3.1)
-      jquery-rails (~> 2.0)
-      jquery-ui-rails (~> 2.0)
-      kaminari (~> 0.12)
-      nested_form (~> 0.2.3)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
-    raindrops (0.10.0)
-    rake (10.0.3)
-    rdoc (3.12.1)
+    raindrops (0.11.0)
+    rake (10.1.0)
+    rdoc (3.12.2)
       json (~> 1.4)
-    redcarpet (2.0.1)
-    remotipart (1.0.5)
+    remotipart (1.2.1)
     responders (0.9.3)
       railties (~> 3.1)
-    riddle (1.5.7)
-    rubypython (0.5.3)
-      blankslate (>= 2.1.2.3)
-      ffi (~> 1.0.7)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    riddle (1.5.8)
     russian (0.6.0)
       i18n (>= 0.5.0)
-    sass (3.2.5)
+    safe_yaml (0.9.5)
+    sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    simple_form (2.0.4)
+    select2-rails (3.4.3)
+      sass-rails
+      thor (~> 0.14)
+    simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    slop (3.4.3)
+    slop (3.4.6)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    subexec (0.2.2)
+    subexec (0.2.3)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
-    thor (0.17.0)
-    tilt (1.3.3)
-    treetop (1.4.12)
+    thor (0.18.1)
+    thread_safe (0.1.2)
+      atomic
+    tilt (1.4.1)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.35)
-    uglifier (1.3.0)
+    tzinfo (0.3.37)
+    uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.6.0)
+    unicorn (4.6.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    warden (1.2.1)
+    warden (1.2.3)
       rack (>= 1.0)
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
     workflow (0.8.0)
+    ya2yaml (0.31)
 
 PLATFORMS
   ruby
@@ -328,21 +349,22 @@ DEPENDENCIES
   ancestry
   awesome_print
   better_errors
-  bootstrap-sass (= 2.0.3)
+  bootstrap-sass
+  bootstrap-wysihtml5-rails
   breadcrumbs_on_rails!
   builder
   cancan
   carrierwave
-  coffee-filter
   coffee-rails (~> 3.2.0)
   compass
   devise!
   devise-russian
   forem!
-  forem-theme-base!
-  friendly_id!
+  forem-bootstrap!
+  friendly_id
   haml-rails
   has_scope
+  jquery-fileupload-rails!
   jquery-rails
   json_builder
   kaminari
@@ -354,7 +376,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   rails!
-  rails_admin
+  rails_admin!
   responders
   russian
   sape-rails!

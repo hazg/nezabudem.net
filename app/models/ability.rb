@@ -28,7 +28,7 @@ class Ability
 
       cannot :all, :rails_admin
     end
-
+    
     
 
     #if user.role? :user

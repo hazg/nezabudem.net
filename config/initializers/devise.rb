@@ -5,7 +5,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "info@nezabudem.net"
-
+  config.secret_key = 'c9398802fa1dabd6f4cf26e8f32b9051443086c46a60acf1e47ddf1c2ba3c84e0a38899b8fa7e02a397e52ecc63b06c1f37724cf96fe3384e29da6a99e578637'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

@@ -1,7 +1,7 @@
 %div.control-group.string.required
   %label.string.required.control-label{:for => :search} Поиск на карте
   %div.controls
-    %input{:id=> "search", :class => 'geocoded'}
+    %input{id: "search", class: 'geocoded', type: 'text'}
 = f.input :address, :input_html => {:onfocus=>'$(this).blur();', :value => @place.full_address, :rows => 2, :style => 'height: auto; cursor: default; background-color: #ddd'}, :as => :text
 = f.input :name
 = f.input :description

@@ -9,7 +9,7 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-//
+//= require jquery
 //= require jquery_ujs
 //= require utils
 //= require bootstrap
@@ -18,16 +18,17 @@
 //= require places
 //= require tabs
 //= require jquery/blink
-//= require jquery-ui.min
+//##= require jquery-ui
 //= require jquery/FitText
-//= require redactor-min
-//= require redactor-ru
-
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5.ru-RU.js
+//##= require jquery-fileupload
+//
 jQuery(window).load(function(){
   
   
   $('.dropdown-toggle').dropdown();
-  $('button.btn').button();
+  //$('button.btn').button();
 
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',

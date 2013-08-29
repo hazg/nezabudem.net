@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20130111085545) do
   add_index "forem_categories", ["slug"], :name => "index_forem_categories_on_slug", :unique => true
 
   create_table "forem_forums", :force => true do |t|
-    t.string  "name"
+    t.string  "title"
     t.text    "description"
     t.integer "category_id"
     t.integer "views_count", :default => 0

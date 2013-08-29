@@ -14,7 +14,7 @@
         = f.input :commentable_type, :as => :hidden
         = f.input :parent_id, :as => :hidden
         = f.submit :value => 'Отправить', :class => 'btn'
-    
+ 
 = to_redactor('#comment_body')
 = javascript_include_tag('comments')
 = stylesheet_link_tag('comments')

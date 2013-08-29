@@ -2,7 +2,7 @@
 class ObelisksController < ApplicationController
   
 
-  load_and_authorize_resource :place
+  #load_and_authorize_resource :place if params[:id]
   include PlacesHelper
   add_breadcrumb "Обелиски", :obelisks_path
   #before_filter :process_soldiers
@@ -20,6 +20,7 @@ class ObelisksController < ApplicationController
   def show
     Obelisk.paginates_per 10
     @place = Obelisk.find(params[:id])
+    authorize! :show, @place
     @places = @place.subtree.without_nodes.order('updated_at DESC').page params[:page]
     path_breadcrumbs(@place)
     respond_with(@place)
@@ -35,6 +36,7 @@ class ObelisksController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Obelisk.find(params[:id])
+    authorize! :edit, @place
     path_breadcrumbs(@place)
   end
 
@@ -56,6 +58,7 @@ class ObelisksController < ApplicationController
   def update
   #  expire_action :action => [:index, :show]
     @place = Obelisk.find(params[:id])
+    authorize! :update, @place
     #process_soldiers
     @place.update_attributes(params[:obelisk])
     respond_with(@place)
@@ -66,6 +69,7 @@ class ObelisksController < ApplicationController
   def destroy
   #  expire_action :action => [:index, :show]
     @place = Obelisk.find(params[:id])
+    authorize! :destroy, @place
     @place.destroy
     respond_with(@place)
   end
