@@ -118,14 +118,6 @@ GIT
       sass-rails (~> 3.1)
 
 GIT
-  remote: git://github.com/tsaiid/jquery-fileupload-rails.git
-  revision: ccc9f107d2681d0455996dbef998c7330d661480
-  specs:
-    jquery-fileupload-rails (0.4.2)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
-
-GIT
   remote: https://github.com/jongilbraith/simple-private-messages.git
   revision: 7ba7d3c9f7670ef3bddfc90390a49556a94f7013
   specs:
@@ -364,7 +356,6 @@ DEPENDENCIES
   friendly_id
   haml-rails
   has_scope
-  jquery-fileupload-rails!
   jquery-rails
   json_builder
   kaminari

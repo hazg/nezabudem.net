@@ -18,11 +18,9 @@
 //= require places
 //= require tabs
 //= require jquery/blink
-//##= require jquery-ui
 //= require jquery/FitText
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5.ru-RU.js
-//##= require jquery-fileupload
 //
 jQuery(window).load(function(){
   

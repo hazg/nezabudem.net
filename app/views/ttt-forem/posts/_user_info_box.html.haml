@@ -1,0 +1,10 @@
+- post.user.roles.each do |r|
+  %span.label{:style=>'font-weight:bold'}!= "#{r.title}"
+
+- if post.user.soldiers.count > 0
+  %div!= "фио: #{link_to(post.user.soldiers.count, '/profiles/'+post.user.profile.id.to_s+'/soldiers')}".html_safe
+- if post.user.places.count > 0
+  %div!= "объектов: #{link_to(post.user.places.count, '/profiles/'+post.user.profile.id.to_s+'/places')}"
+- if post.user.place_photos.count > 0 
+  %div!= "фото: #{link_to(post.user.place_photos.count, '/profiles/'+post.user.profile.id.to_s+'/photos')}"
+
