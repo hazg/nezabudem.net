@@ -36,6 +36,10 @@ ru:
     attributes:
       user:
         nick: Ник
+        email: Почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить
       profile:
         fio: ФИО
         about: О себе

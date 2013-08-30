@@ -42,6 +42,8 @@ gem 'cancan'#, '1.6.7'
 gem 'devise-russian'
 gem 'builder'
 gem 'rails_admin', github: 'sferik/rails_admin', branch: 'rails-3.x'
+#gem 'rails_admin_nestable'
+
 #gem 'rails_admin_tag_list', :git => 'git://github.com/kryzhovnik/rails_admin_tag_list.git'
 gem 'bootstrap-sass'#, '2.0.3' #, :git => 'git://github.com/hazg/bootstrap-sass.git', :branch=>'patch-1'
 #gem 'jquery-fileupload-rails', github: 'tsaiid/jquery-fileupload-rails'
@@ -68,6 +70,7 @@ group :development do
   gem 'quiet_assets'
   #gem 'rack-mini-profiler'
   gem 'better_errors'
+  gem 'letter_opener'
 end
 
 
