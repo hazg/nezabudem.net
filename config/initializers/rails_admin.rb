@@ -101,7 +101,7 @@ RailsAdmin.config do |config|
   #  end
     
   #end
-  config.model Place do 
+=begin  config.model Place do 
     include_all_fields
     field :parent_id, :enum do 
       enum do 
@@ -109,7 +109,7 @@ RailsAdmin.config do |config|
         Place.where("id != ?", except).map { |c| [ c.name, c.id ] } 
       end 
     end 
-  end
+=end
   config.model User do
 
     # Found associations:

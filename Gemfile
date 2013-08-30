@@ -57,12 +57,15 @@ group :production do
   gem 'unicorn'
 end
 
+
+
 group :development do
-  #gem 'bullet'
+  gem 'bullet'
   #gem 'debugger'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'pry-debugger'
+  gem 'quiet_assets'
   #gem 'rack-mini-profiler'
   gem 'better_errors'
 end
