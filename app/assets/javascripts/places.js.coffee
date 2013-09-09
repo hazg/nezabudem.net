@@ -297,7 +297,7 @@ class PlaceMap
       .wrap('<div class="input-append"></div>')
       .after('<button class="btn decoded-search" type="button"><i class="icon-search"></i></button>').parent()
       .after('<div style="display:none" class="geocode-results"><ul class="nav nav-list geocode-list"></ul><button class="btn" onclick="$(this).parent().hide().find(\'.geocode-list\').html(\'\');return false;">Закрыть</button></div>')
-      .after('<label data-placement="left" title="'+search_by_coords+'" rel="tooltip" class="checkbox"><input id="search_by_gps" type="checkbox">Поиск по координатам с GPS</label>')
+      .after('<label data-placement="left" title="'+search_by_coords+'" data-html="true" rel="tooltip" class="checkbox"><input id="search_by_gps" type="checkbox">Поиск по координатам с GPS</label>')
     $('[rel=tooltip]').tooltip()
 #   
     $('input#search').keydown (e) =>
@@ -312,6 +312,7 @@ class PlaceMap
     $('button.decoded-search').click (e) =>
       if $('#search_by_gps').is(':checked')
         #SEARCH BY COORDS
+        
         ymaps.geocode($('input.geocoded').val()).then (p) =>
           #@set_placemark([coords[1], coords[0]])
           coords = p.geoObjects.get(0).geometry.getCoordinates()
@@ -331,7 +332,7 @@ class PlaceMap
         parent = $(e.currentTarget).parent()
         list = parent.parent().find('.geocode-results').show().find('.geocode-list')
         list.html('')
-        text = parent.find('input.geocoded').attr('value')
+        text = parent.find('input.geocoded').val()
         @geocode text, (t) =>
           t.each (o) =>
             a = $("<li><a href='#map'>#{o.properties.get('text')}</a></li>")
