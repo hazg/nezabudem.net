@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sape-rails', :git => 'git://github.com/hazg/sape-rails'
+gem 'sape-rails', :git => 'git://github.com/hazg/sape-rails', branch: 'master'
 
 gem 'forem', :git => 'git://github.com/radar/forem.git'
 #gem 'forem-theme-base', :git => 'git://github.com/radar/forem-theme-base.git'

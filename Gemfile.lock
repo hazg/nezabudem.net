@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/hazg/sape-rails
-  revision: db4f7720036b7338c333652cdc64c42db2add765
+  revision: 346e14a1db8c916521d0c52233a1a252a82d09e8
+  branch: master
   specs:
     sape-rails (0.0.1)
 
