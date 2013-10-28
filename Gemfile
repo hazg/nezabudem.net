@@ -64,9 +64,9 @@ end
 group :development do
   gem 'bullet'
   #gem 'debugger'
-  gem 'pry-rails'
-  gem 'pry-stack_explorer'
-  gem 'pry-debugger'
+  #gem 'pry-rails'
+  #gem 'pry-stack_explorer'
+  #gem 'pry-debugger'
   gem 'quiet_assets'
   #gem 'rack-mini-profiler'
   gem 'better_errors'
@@ -99,7 +99,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

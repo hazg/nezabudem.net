@@ -1,74 +1,45 @@
-require 'thinking_sphinx/deploy/capistrano'
-
 set :application, "Nezabudem.NET"
-set :repository,  "git@bitbucket.org:hazg/nezabudem.net.git"
-
-set :user,        'www-data'
-set :host,        'nezabudem.net'
-
-
-set :scm, :git
-
-set :deploy_to, '/var/www/webmaster/data/www_rails3/nezabudem.net'
-set :use_sudo, false
-
-#set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-set :domain, 'www-data@nezabudem.net'
-role :web, domain                          # Your HTTP server, Apache/etc
-role :app, domain                          # This may be the same as your `Web` server
-role :db,  domain, :primary => true # This is where Rails migrations will run
-
+set :repo_url, "git@bitbucket.org:hazg/nezabudem.net.git"
 set :keep_releases, 1
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-after 'deploy:update_code', 'deploy:symlink_db'
-after 'deploy:symlink_db', 'deploy:symlink_uploads'
-after 'deploy:start', 'deploy:cleanup'
+ set :deploy_to, '/var/www/webmaster/data/www_rails3/nezabudem.net'
+ set :scm, :git
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+set :format, :pretty
+# set :log_level, :debug
+# set :pty, true
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-namespace :deploy do
-  desc "Symlinks public/uploads"
-  task :symlink_uploads, :roles => :app do
-    run "ln -s #{deploy_to}/shared/public/uploads #{release_path}/public/"
-  end
-end
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/i public/images public/javascripts public/uploads}
 
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-namespace :deploy do
-  desc "Symlinks the database.yml"
-  task :symlink_db, :roles => :app do
-    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-  end
-end
-
-
-# If you are using Passenger mod_rails uncomment this:
-namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-end
-
-namespace :assets do task :update_asset_mtimes do ; end end
-
-load 'deploy/assets'
-
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 namespace :deploy do
-  namespace :assets do
-    desc 'Run the precompile task locally and rsync with shared'
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      %x{bundle exec rake assets:precompile RAILS_ENV=production}
-      %x{rsync --recursive --times --rsh=ssh --compress --human-readable --progress public/assets #{user}@#{host}:#{shared_path}}
-      %x{bundle exec rake assets:clean}
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
+  
+  desc "Symlinks public/uploads"
+  task :symlink_uploads do
+    run "ln -s #{deploy_to}/shared/public/* #{release_path}/public/"
+  end
+
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      #within release_path do
+        #execute :rake, 'cache:clear'
+      #end
+    end
+  end
+
+  after :finishing, 'deploy:cleanup'
+
 end
