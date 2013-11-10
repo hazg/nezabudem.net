@@ -23,10 +23,10 @@ class User < ActiveRecord::Base
   has_private_messages
 
 
-  validates_uniqueness_of :nick
-  validates :nick, :format => { :with => /[\w\W\d()\-_.]{3,}+/, 
-    :maximum => 12, :minimum => 3,
-    :message => I18n.t('user.nick.valid_hint') }  
+  #validates_uniqueness_of :nick
+  #validates :nick, :format => { :with => /[\w\W\d()\-_.]{3,}+/, 
+  #  :maximum => 12, :minimum => 3,
+    # :message => I18n.t('user.nick.valid_hint') }  
   
   
   # Setup accessible (or protected) attributes for your model
@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
     self.create_avatar
     self.roles << Role.find_by_name('user')
   end
+  
   def admin?
     role? :admin
   end
