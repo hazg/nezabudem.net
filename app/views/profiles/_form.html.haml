@@ -10,6 +10,7 @@
           %div.change-photo{:style=>'display:none'}
             = a.input :photo, :as => :file, :label => 'Новая фотография для аватара'
         %div.span6
+          = f.input :nick if not @profile.nick
           = f.input :fio
           = f.input :about
         %div.span2

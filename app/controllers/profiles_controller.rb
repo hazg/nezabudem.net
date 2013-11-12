@@ -77,7 +77,13 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
     avatar = params[:profile][:avatar]
     params[:profile].delete :avatar
+
+    nick = params[:profile][:nick]
+    params[:profile].delete :nick
+
+
     current_user.avatar.update_attributes(avatar)
+    current_user.update_attributes(nick:nick) if nick 
     @profile.update_attributes(params[:profile])
     respond_with(@profile)
   end
