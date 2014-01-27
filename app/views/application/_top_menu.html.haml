@@ -16,6 +16,10 @@
           %li= link_to current_user.email, current_user.profile
         - else
           %li= link_to( "Вход", new_user_session_path )
+        %li{style:'margin-top: 4px;'}
+          :plain 
+            <iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/small.xml?uid=41001138826041&amp;button-text=06&amp;button-size=s&amp;button-color=black&amp;targets=%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82+%D0%9D%D0%B5%D0%B7%D0%B0%D0%B1%D1%83%D0%B4%D0%B5%D0%BC.%D0%9D%D0%95%D0%A2&amp;default-sum=100" width="auto" height="31"></iframe>
+
       -# .pull-left.nav-pills
 
       %ul.top-menu
