@@ -21,7 +21,7 @@
     -#%div#signature{:style=>"width: 300px;height: 300px; border: 1px solid red"}
     %a{:href => @photo.photo.url, :style => 'margin: auto;display: block; text-align: center', :id=>'zoom', :target => '_blank'}
       = image_tag @photo.photo.url(:normal), :id => 'signatured'
-    %p
+    %div
       = link_to 'Изображение целиком (в новом окне)', @photo.photo.url, :target => '_blank'
     - if @photo.description
       %div= simple_format(@photo.description) 
