@@ -17,12 +17,17 @@ $(document).ready () ->
         #{private_message}    
       </ul>"
     ))
-    $this.attr('href', name)
-  .addClass('dropdown-toggle')
+    #.attr('href', name)
 
-  $('.private-message').click () ->
-    $this = $(this)
-    $('#private-message-frame').load "/messages/new?to=#{$this.attr('rel')}", () ->
-      $('#private-message-frame ul.nav.nav-tabs').hide()
-    $('.private-message.modal').modal()
+    $this.addClass('dropdown-toggle')
 
+    $('a.private-message').click () ->
+      $this = $(this)
+      $('#private-message-frame').load "/messages/new?to=#{$this.attr('rel')}", () ->
+        $('#private-message-frame ul.nav.nav-tabs').hide()
+        $('.private-message.modal').find('[data-dismiss="modal"]').click () =>
+          $('.private-message.modal').modal('hide')
+          false
+      
+      $('.private-message.modal').modal()
+      false
