@@ -10,6 +10,7 @@ if defined?(Bundler)
 end
 
 module NezabudemNet
+
   class Application < Rails::Application
     ActsAsTaggableOn.force_lowercase = true
     # Settings in config/environments/* take precedence over those specified here.
@@ -62,5 +63,6 @@ module NezabudemNet
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
   end
 end
